@@ -1,0 +1,951 @@
+/* Ce site est réalisé lors de mes périodes d'insomnie */
+
+body {
+    margin:0;
+    padding:0;
+    background-color: #ffffff; /* A changer */
+    font-family: 'Montserrat', sans-serif; /* Police de base du site A CHECK */
+    color: #ffffff; /* Couleur police de base // A CHANGER */
+}
+
+::selection { /* Couleur de selection ✅ */
+    color:  #ffffff;
+    background-color: #4663ad;
+}
+
+p { /* ✅ */
+    margin: 0;
+}
+
+h1 { /* Texte header  ✅ */
+    font-size: 48px;
+    text-align: center;
+    font-family: 'Luckiest Guy', cursive;
+    letter-spacing: 2px;
+    margin: 0px;
+}
+
+h2 { /* Texte section ✅ */
+    width: 380px; /* Largeur */
+    font-size: 50px;
+    text-align: left;
+    margin-top: 0;
+}
+
+/*-- HEADER --*/
+.canvas {
+    height: 450px; /* Hauteur du header */
+    background-image: url(img/BannerV2.jpg); /* Illustration */
+    background-repeat: no-repeat;
+    background-color: #40333D;
+    background-position: center;
+}
+
+/*-- NAVIGATION CONTAINER --*/
+.navContainer {
+    display: flex;
+    max-width: 1280px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+}
+
+/*-- LOGO  ✅--*/
+.logo {
+    width: 65px;
+    height: 56px;
+    margin-right: 10px;
+}
+
+/*-- MENU --*/
+.navLink {
+    display: flex;
+    list-style: none;
+    padding: 15px 20px; 
+    font-size: 16px; 
+    font-weight: 500;
+}
+
+.navCat {
+    padding-right: 30px;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+}
+
+.navCat.anim-middle:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: white;
+    margin: auto;
+    margin-top: 5px;
+    transition: all .2s ease;
+}
+
+.navCat.anim-middle:hover:after {
+    width: 50%;
+}
+
+
+/*-- TEXT HEADER ✅ --*/
+.textHeader { /* Une quête épique... */
+    margin: 40px 0 150px;
+    text-align: center;
+}
+
+/*-- SVG IMAGES --*/
+svg {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.shapeSlim { /* Custom shape // Slim ✅ */
+    width: 100%;
+}
+
+.shapeCircle {
+    width: 100%;
+}
+
+/*-- CONTENU --*/
+.mainContainer {
+    background-color: #F3F3F3;
+    text-align: center;
+}
+
+/*-- TWITCH LECTEUR --*/
+#twitch {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: -110px;
+}
+
+
+/* -- BOUTONS -- */
+button { /* ✅ */
+    display: inline-flex;
+    align-items: center;
+    font-size: 20px;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    margin-top: 30px;
+    margin-bottom: 90px;
+    padding: 20px 40px 20px 40px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.twitch-btn { /* Bouton Twitch ✅ */
+    background-color: #9146FF;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 350px;
+} 
+
+.twitch-btn img, .discord-btn img { /* ✅ */
+    width: 20px;
+    margin-right: 10px;
+}
+
+.twitch-btn:hover {
+    background-color:#A162FF;
+    box-shadow: #bdbdbd 0px 6px 15px;
+    transform: translateY(-10%);
+}
+
+.discord-btn { /* Bouton Discord ✅ */
+    background-color: #7289DA;
+    float: left;
+}
+
+.discord-btn:hover {
+    background-color: #859DF3;
+    box-shadow: #bdbdbd 0px 6px 15px;
+    -webkit-transform: translateY(-10%);
+    transform: translateY(-10%);
+}
+
+/* -- SECTION --*/
+section  { /* ✅ */
+    display: flex;
+    justify-content: center;
+    color: #261C21;
+}
+
+.section-container { /* ✅ */
+    display: flex;
+    justify-content: space-between;
+    max-width: 1280px;
+    width: 95%;
+    margin: 90px 0 90px;
+}
+
+.explorer {
+    transform: translateY(20%);
+    opacity: 0;
+    transition: transform 0.6s ease-in-out,
+    opacity 0.6s ease-in-out;
+}
+
+.explorer.active {
+    transform: translateY(0%);
+    opacity: 1;
+}
+
+.uboux { /* Contenu aux petit oignons ✅ */
+    background-color: #E8E8E8;
+}
+
+.textInfos {
+    text-align: left;
+    font-size: 20px;
+    line-height: 160%;
+    width: 380px;
+}
+
+.ubouxIllustration {
+    height: 500px;
+    object-fit: scale-down;
+}
+
+.discordIllustration {
+    height: 494px;
+    object-fit: scale-down;
+}
+
+
+/* planning */
+.planning {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.h2_planning {
+    text-align: center;
+    width: auto;
+}
+
+.textPlanning {
+    width: 850px;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+
+
+
+
+
+
+/* Design planning */
+.week {
+ display: flex;
+ font-family: 'Luckiest Guy', cursive;
+ font-size: 20px;
+ width: 900px;
+ justify-content: center;
+ justify-content: space-between;
+ color: #69584b;
+ text-transform: uppercase;
+ margin-bottom: 90px;
+}
+
+.liveOff {
+    background-color: #c9b99f; 
+    height: 550px;
+    width: 50px;
+    writing-mode: vertical-rl;
+    align-content: center;
+    text-orientation: mixed;
+    transition: ease-in-out 0.2s;
+    border-radius: 5px;
+}
+
+.liveOn {
+    background-color:#c9b99f; 
+    height: 550px;
+    width: 200px;
+    transition: ease-in-out 0.2s;
+    border-radius: 5px;
+}
+
+.liveDay {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.liveTheme {
+    height: 500px;
+    width: auto;
+    background-color: #373737;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.liveHour {
+    background-color: #c9b99f;
+    padding-left: 15px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    float: right;
+    border-radius: 5px;
+}
+
+.liveTheme img {
+    width: 100%; /* Ajuste la largeur de l'image pour remplir la div */
+    height: 100%; /* Ajuste la hauteur de l'image pour remplir la div */
+    object-fit:cover; /* Ajuste l'image pour couvrir entièrement le conteneur */
+  }
+
+  .ok {
+    margin-top: 30px;
+  }
+
+  .liveOn:hover, .liveOff:hover {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -- FOOTER -- */
+.footerContainer {
+    background-color: #261C24;
+    text-align: center;
+}
+
+.crewLogo-bottom { /* ✅ */
+    margin: 80px 0 20px;
+}
+
+#socialElements { /* Englobe les icones ✅ */
+    margin-bottom: 40px;
+}
+
+.socialBottom { /* ✅ */
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    list-style: none;
+}
+
+.socialIcon { /* ✅ */
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding-right: 20px;
+    transition: ease-in-out 0.2s;
+}
+
+.socialIcon:hover {
+-webkit-transform: translateY(-20%);
+transform: translateY(-20%);
+}
+
+.bottomSocial  { /* Taille icone ✅ */
+    height: 30px;
+}
+
+#copyright { /* ✅ */
+    background-color: #5F9C4A; 
+    justify-content: center;
+    padding: 15px 0 15px;
+    margin-top: -5px;
+}
+
+.copyrightText { /* ✅ */
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 25px;
+    padding-top: 50px;
+}
+
+.coffee { /* Icone Café ✅ */
+    width: 18px;
+}
+
+
+/*------------------------------------------------*/
+/* -- EVENTS --*/
+.event { /* A FAIRE PLUS TARD */
+    width: auto;
+    text-align: center;
+}
+
+
+/*--- COOKIES --*/
+#magicCookies {
+    display: flex;
+    background-color: white;
+    width: auto;
+    position: absolute;
+    color: #261C21;
+    margin-left: 25px;
+    z-index: 1000;
+    position: fixed;
+    bottom: 25px;
+    border-radius: 20px;
+    margin-bottom: 0;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+}
+
+.cookies_left {
+   padding-left: 30px;
+   padding-top: 30px;
+   padding-bottom: 30px;
+   width: 424px;
+}
+
+.cookiesRight {
+    background-image: url(/img/cookies_illu.png);
+    background-repeat: no-repeat;
+    height: 253px;
+    width: 144px;
+    margin-right: 30px;
+    margin-left: 15px;
+}
+
+
+
+.btn_cookies {
+    background-color: #373737;
+    margin: 0;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-right: 10px;
+    font-size: 14px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    
+}
+
+.reject {
+    background-color: #F0F0F0;
+    transition: 0.2s;
+    color: #261C21;
+}
+
+.cookiesText {
+    margin-bottom: 20px;
+    line-height: 160%;
+    font-size: 14px;
+}
+
+.btn_cookies:hover {
+    background-color: #606060;
+}
+
+.reject:hover {
+    background-color: #E74C3C;
+    color: white;
+}
+
+
+
+
+/*-- Erreur 404 --*/
+.errorContainer {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    margin-top: 70px;
+    margin-bottom: 90px;
+}
+
+.errorFirst_text {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.errorText {
+    color: white;
+    width: 600px;
+    font-size: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    line-height: 160%;
+}
+
+.btn_error {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    color: black;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.btn_error:hover {
+    background-color:black;
+    color: white;
+    box-shadow: #261C24 0px 6px 10px;
+}
+
+
+#errorError {
+    text-align: center;
+}
+
+span {
+    align-items: center;
+}
+
+
+/*- Progress Bar -*/
+#progressBar {
+    width: 100%;
+    height: 4px;
+    background-color: #40333D;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    transition: opacity 0.6s ease;
+}
+
+#progress {
+    height: 100%;
+    background-color: #5F9C4A;
+    width: 0;
+}
+
+.hidden {
+    opacity: 0; /* Opacité à zéro pour masquer la barre */
+}
+
+
+
+    /* -- Canvas Variation --*/
+
+    .headerInfos {
+        text-align: center;
+        font-size: 18px;
+        margin-top: 5px;
+    }
+
+
+    .canvas_faq {
+        background-image: url(img/faq_bg.jpg);
+        background-repeat: no-repeat;
+        background-color: #40333D;
+        background-position: center;
+        /*background-size: cover;*/
+        height: 483px;
+    }
+
+
+/*-- SECTION --> COMMANDES + HF + RANK --*/
+.helpContainer {
+    background-color: #5A77C3;
+    width: 400px;
+    margin-top: -70px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 15px;
+    color: #ffffff;
+    clip-path: polygon(0 0, 100% 0, 100% 76%, 50% 100%, 0 76%);
+    height: 500px;
+    flex-wrap:wrap;
+    border: 8px #2F3D72;
+    border-top-style: solid;
+}
+
+.grimmoire {
+    background-color: #8E4DC1;
+    border-color: #4C2F75;
+}
+
+.hf {
+    margin-top: -120px;
+    background-color: #A93F63;
+    border-color: #772F49;
+}
+
+.help_h2 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.helpText {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 20px;
+    line-height: 160%;
+    min-height: 150px;
+}
+
+.helpLink {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.indev {
+    cursor: not-allowed;
+}
+
+
+.material-symbols-outlined {
+    padding-left: 5px;
+    transition: 0.2s;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 500,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.helpLink:hover .material-symbols-outlined {
+    transform: translateX(15%);
+}
+
+ /*-- FAQ --*/
+ .faq_h2 {
+    margin-left: auto;
+    margin-right: auto;
+    color: #261C21;
+    margin-bottom: 15px;
+    width: auto;
+    margin-bottom: 50px;
+}
+
+
+.faqSearch {
+    width: 80%;
+    padding: 16px;
+    margin-bottom: 90px;
+    box-sizing: border-box;
+    border: 1px solid #E8E8E8;
+    border-radius: 15px;
+    font-size: 16px;
+}
+
+.no-results-message {
+    display: none;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.faqTopic_container {
+    padding: 5px 15px 5px 15px;
+    background-color: #E8E8E8;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+  
+.open {
+    cursor: pointer;
+    display: block;
+    padding: 0px;
+}
+      
+.faqTag { 
+    display: none;
+}
+      
+.question {
+    padding: 20px 10px 0 0;
+    font-size: 18px;
+    font-weight: 500;
+    width: 100%;
+}
+      
+      .answer {
+        font-size: 16px;
+        line-height: 160%;
+        display: none;
+        margin-bottom: 30px;
+        text-align: left;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      
+      
+      .faq { /* ✅ */
+        display: flex;
+        flex-direction:column;
+    }
+
+    .h2_faq {
+        width: auto;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .textFaq {
+        display: inline;
+        font-size: 18px;
+        
+    }
+
+    .faqLink {
+        display: inline-block;
+        text-decoration: underline;
+          }
+    
+
+/*-- SECTION COMMANDES --*/
+
+.ariane {
+    padding-top: 50px;
+    margin-bottom: 90px;
+}
+
+.ariane2 {
+    font-weight: 600;
+    color: #261C21;
+    display: flex;
+    align-items: center;
+}
+
+.cmd1{
+    display: flex;
+    align-items: center;
+}
+
+.section-cmd {
+    width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: left;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.table {
+    color: #261C21;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    width: 1280px;
+    max-width: 1280px;
+    font-size: 16px;
+    line-height: 160%;
+    border-collapse: separate;
+    border-spacing: 0px; 
+    padding: 10px;
+    margin-bottom: 90px;
+}
+
+
+.title_cmd {
+    font-size: 25px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.alias_container {
+    width: 200px;
+}
+
+.cout_container {
+    width: 250px;
+}
+
+.table_box_title {
+    padding-bottom: 30px;
+    border-bottom: solid 2px #C9C9C9; 
+}
+
+td {
+    height: auto;
+    padding: 30px 20px 30px 20px;
+    border-bottom: 2px solid #C9C9C9;;
+}
+
+.colorcmd {
+    background-color: #E8E8E8;;
+}
+
+.box_cmd {
+    border: solid 2px #261C21;
+    padding: 5px 10px 5px 10px;
+    font-weight: 500;
+    text-align: center;
+    margin: 0 5px 10px 5px;
+    border-radius: 10px;
+}
+
+.rank {
+    text-align: center;
+}
+
+.meryth {
+    border-color: #F1C40F;
+    color: #F1C40F;
+    transition: 0.2s;
+}
+
+.modo {
+    border-color: #9a61f8;
+    color: #9a61f8;
+    transition: 0.2s;
+}
+
+.astrox {
+    border-color: #E74C3C;
+    color: #E74C3C;
+}
+
+.special {
+    border-color: #E67E22;
+    color: #E67E22; 
+}
+
+
+
+.alias_cmd {
+    font-weight: 500;
+}
+
+
+.header_text {
+    margin-bottom: 90px;
+}
+
+.text_cmd {
+    justify-content: center;
+    text-align: center;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 90px;
+}
+
+.cmdhh2 {
+    margin-bottom: 20px;
+    line-height: 160%;
+}
+
+
+
+
+/*-- HF --*/
+
+.badges  {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 90px;
+   max-width: 1280px;
+   min-width: 300px;
+    align-items: stretch;
+    align-content: flex-end;
+    gap: 10px;
+}
+
+
+.badges_box {
+    border-radius: 10px;
+    height: 300px;
+    width: 300px;
+}
+
+.noBadges {
+    opacity: 0.3;
+}
+
+.badges_img {
+    height: 150x;
+    width: 150px;
+    margin-top: 30px;
+    transition: 0.2s;
+    cursor: pointer;
+    filter: drop-shadow(0 0 0.80rem #C6C6C6);
+}
+
+.badges_img:hover {
+    scale: 1.1;
+}
+
+h4 {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+}
+
+.badges_txt {
+    font-size: 16px;
+}
+
+/*-- A REFAIRE --*/
+.size2 { /*-- taille header CMD + HF --*/
+    height: 350px;
+    background-color: #5A77C3;
+    background-image: none;
+    border-bottom: solid 5px #2F3D72;
+}
+
+
+.size3 {
+    height: 350px;
+    background-color: #A93F63;
+    background-image: none;
+    border-bottom: solid 5px #772F49;
+}
+
+
+
+.element {
+    position: relative;
+  }
+  
+  .popover {
+    opacity: 0;
+    position: absolute;
+    padding: 10px;
+    background-color: #E8E8E8;
+    border-radius: 10px;
+    font-weight: 500;
+    line-height: 140%;
+    transform: translateY(398%); /* Réinitialise le décalage lors du survol */
+    -webkit-transform: translateY(398%);
+    -ms-transform: translateY(398%);
+  }
+  

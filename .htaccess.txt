@@ -1,0 +1,1 @@
+ErrorDocument 404 /chemin/vers/erreur-404.html
