@@ -426,7 +426,7 @@ transform: translateY(-20%);
 }
 
 .cookiesRight {
-    background-image: url(/img/cookies_illu.png);
+    background-image: url(img/cookies_illu.png);
     background-repeat: no-repeat;
     height: 253px;
     width: 144px;
