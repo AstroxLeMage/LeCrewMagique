@@ -201,46 +201,5 @@
         <!-- COOKIES -->
         <div id="cookiesContainer"></div>
         </div>
-
-
-          <!-- Balise div pour la vidéo YouTube -->
-    <div id="videoContainer" style="display: none;"></div>
-
-    <script>
-       // Sélectionne l'image de Crash Bandicoot par son ID
-var crashImage = document.getElementById('crashImage');
-
-// Ajoute un écouteur d'événement pour détecter le survol de l'image
-crashImage.addEventListener('mouseover', function() {
-    // Récupère l'identifiant de la vidéo YouTube à partir de l'URL
-    var videoId = extractVideoId('https://www.youtube.com/watch?v=F7G91RjVmvk');
-
-    // Crée l'iframe pour la vidéo YouTube
-    var videoContainer = document.getElementById('videoContainer');
-    videoContainer.style.display = 'block';
-    videoContainer.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + videoId + '?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
-});
-
-// Ajoute un écouteur d'événement pour détecter lorsque la souris quitte l'image
-crashImage.addEventListener('mouseout', function() {
-    // Cache la vidéo en vidant le contenu du conteneur
-    var videoContainer = document.getElementById('videoContainer');
-    videoContainer.style.display = 'none';
-    videoContainer.innerHTML = ''; // Vide le contenu pour arrêter la vidéo
-});
-
-// Fonction pour extraire l'identifiant de la vidéo YouTube à partir de l'URL
-function extractVideoId(url) {
-    var regExp = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*/;
-    var match = url.match(regExp);
-    if (match && match[1].length === 11) {
-        return match[1];
-    } else {
-        console.error('URL de la vidéo YouTube invalide');
-        return '';
-    }
-}
-
-    </script>
     </body>
 </html>
