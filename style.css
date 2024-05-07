@@ -1,4 +1,5 @@
 /* Ce site est réalisé lors de mes périodes d'insomnie */
+/* Optimisation et nettoyage en cours ! */
 
 body {
     margin:0;
@@ -216,16 +217,15 @@ section  { /* ✅ */
 
 .ubouxIllustration {
     height: 500px;
-    object-fit: scale-down;
 }
 
 .discordIllustration {
-    height: 494px;
-    object-fit: scale-down;
+    height: auto;
+    width: 750px;
 }
 
 
-/* planning */
+/* PLANNING  */
 .planning {
 display: flex;
 flex-direction: column;
@@ -242,11 +242,6 @@ align-items: center;
     text-align: center;
     margin-bottom: 80px;
 }
-
-
-
-
-
 
 
 /* Design planning */
@@ -305,9 +300,9 @@ align-items: center;
 }
 
 .liveTheme img {
-    width: 100%; /* Ajuste la largeur de l'image pour remplir la div */
-    height: 100%; /* Ajuste la hauteur de l'image pour remplir la div */
-    object-fit:cover; /* Ajuste l'image pour couvrir entièrement le conteneur */
+    width: 100%;
+    height: 100%;
+    object-fit:cover; 
   }
 
   .ok {
@@ -319,20 +314,6 @@ align-items: center;
     transform: scale(1.05);
     cursor: pointer;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* -- FOOTER -- */
 .footerContainer {
@@ -434,8 +415,6 @@ transform: translateY(-20%);
     margin-left: 15px;
 }
 
-
-
 .btn_cookies {
     background-color: #373737;
     margin: 0;
@@ -447,7 +426,6 @@ transform: translateY(-20%);
     padding-right: 30px;
     padding-top: 15px;
     padding-bottom: 15px;
-    
 }
 
 .reject {
@@ -470,9 +448,6 @@ transform: translateY(-20%);
     background-color: #E74C3C;
     color: white;
 }
-
-
-
 
 /*-- Erreur 404 --*/
 .errorContainer {
@@ -914,7 +889,7 @@ h4 {
     font-size: 16px;
 }
 
-/*-- A REFAIRE --*/
+/*-- A REFAIRE // EN COUR --*/
 .size2 { /*-- taille header CMD + HF --*/
     height: 350px;
     background-color: #5A77C3;
@@ -922,15 +897,12 @@ h4 {
     border-bottom: solid 5px #2F3D72;
 }
 
-
 .size3 {
     height: 350px;
     background-color: #A93F63;
     background-image: none;
     border-bottom: solid 5px #772F49;
 }
-
-
 
 .element {
     position: relative;
@@ -948,4 +920,3 @@ h4 {
     -webkit-transform: translateY(398%);
     -ms-transform: translateY(398%);
   }
-  
