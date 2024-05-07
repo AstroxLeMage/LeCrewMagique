@@ -7,29 +7,27 @@
         <meta name="title" content="ALM | Le Crew Magique">
         <meta name="description" content="Le Crew Magique est le site dédies à la communauté d'AstroxLeMage, streamer belge | Stream le mardi & jeudi soir dans la joie et la bonne humeur sur tous type de jeux, sans pression... ou presque... !">
         <meta name="author" content="AstroxLeMage">
-
         <meta property="og:title" content="ALM | Le Crew Magique">
         <meta property="og:description" content="Le Crew Magique est le site dédies à la communauté d'AstroxLeMage, streamer belge | Stream le mardi & jeudi soir dans la joie et la bonne humeur sur tous type de jeux, sans pression... ou presque... !">
         <meta property="og:image" content="https://astroxlemage.github.io/LeCrewMagique/img/LCM_color.jpg">
         <meta property="og:image:alt" content="Crew Magique Logo">
         <meta property="og:url" content="https://astroxlemage.github.io/LeCrewMagique/">
+        <meta data-n-head="ssr" data-hid="og:title" property="og:title" prefix="og: http://ogp.me/ns#" content="lecrewmagique.be">
         <meta property="og:type" content="website">
-
-
-        <script src="magicScroll.js" defer></script>
+        <script src="magicScripts.js" defer></script>
         <link rel="stylesheet" href="style.css">
         <link rel="shortcut icon" type="image/png" href="favicon.png">
         <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
     </head>
-
     <body>
+        <!-- BARRE DE PROGRESSION -->
         <div id="progressBar">
             <div id="progress"></div>
         </div>
         <!-- HEADER -->
-        <header class="canvas"> <!-- Contient le header / Illustration + la navigation -->
+        <header class="canvas">
             <!-- NAVIGATION -->
-            <nav class="navContainer"> <!-- Englobe logo + links -->
+            <nav class="navContainer">
                 <!-- LOGO -->
                 <a href="index.html">
                     <img class="logo" src="img/LCM.png" alt="Logo du Crew Magique">
@@ -61,16 +59,13 @@
                 </svg>
             </div>
         </header>
-
         <!-- CONTENU -->
         <main class="mainContainer">
             <!-- LECTEUR TWITCH -->
             <div id="twitch">
-                <!-- Add a placeholder for the Twitch embed -->
+                <!-- INTEGRATION TWITCH -->
                 <div id="twitch-embed"></div>
-                <!-- Load the Twitch embed script -->
                 <script src="https://player.twitch.tv/js/embed/v1.js"></script>
-                <!-- Create a Twitch.Player object. This will render within the placeholder div -->
                 <script>
                 new Twitch.Player("twitch-embed", {
                     channel: "Astroxlemage",
@@ -108,7 +103,6 @@
                         <img class="discordIllustration" src="img/explore-img.png" alt="Illustration du serveur Discord">
                     </div>
                 </section>
-
                 <!-- SECTION 3 // Planning // -->
                 <section class="uboux"> 
                     <div class="section-container planning explorer">
@@ -116,12 +110,12 @@
                             <h2 class="h2_planning">Planning de la semaine</h2>
                             <p class="textInfos textPlanning">Retrouvons-nous les mardis et jeudis soirs pour de nouvelles aventures ! Surveille tes notifications car des streams random peuvent également apparaître.</p>
                         </div>
-                        <!-- Design plannign -->
                         <div class="week">
+                            <!-- LUNDI -->
                             <div class="liveOff">
                                 <p>Lundi | Off</p>
                             </div>
-
+                            <!-- MARDI -->
                             <div class="liveOn ok">
                                 <p class="liveDay">Mardi</p>
                                 <div class="liveTheme">
@@ -131,6 +125,7 @@
                                     <p>20h</p>
                                 </div>
                             </div>
+                            <!-- MERCREDI -->
                             <div class="liveOn">
                                 <p class="liveDay">Mercredi</p>
                                 <div class="liveTheme">
@@ -140,6 +135,7 @@
                                     <p>20h</p>
                                 </div>
                             </div>
+                            <!-- JEUDI -->
                             <div class="liveOn ok">
                                 <p class="liveDay">Jeudi</p>
                                 <div class="liveTheme">
@@ -149,24 +145,26 @@
                                     <p>20h</p>
                                 </div>
                             </div>
+                            <!-- VENDREDI -->
                             <div class="liveOff">
                                 <p>Vendredi | Off</p>
                             </div>
+                            <!-- SAMEDI -->
                             <div class="liveOff ok">
                                 <p>Samedi | Off</p>
                             </div>
+                            <!-- DIMANCHE -->
                             <div class="liveOff">
                                 <p>Dimanche | Off</p>
                             </div>
                         </div>
                     </div>
                 </section>                
- 
         </main>
         <!-- FOOTER -->
         <footer class="footerContainer">
             <img class="crewLogo-bottom" src="img/LogoCrew.png" alt="Logo Crew Magique">
-            
+            <!-- LOGO PLATEFORMES + LINKS -->
             <div id="socialElements">
                 <ul class="socialBottom"> 
                     <li class="socialIcon">
@@ -203,10 +201,10 @@
                 </svg>
             </div>
             <div id="copyright">
-                <p class="copyrightText">Conçu avec une dose massive de <span><img class="coffee" src="img/cofeeIcon.png" alt="Icone tasse de café"></span> | Copyright 2024 AstroxLeMage</p>
+                <p class="copyrightText">Conçu avec une dose massive de 
+                    <span><img class="coffee" src="img/cofeeIcon.png" alt="Icone tasse de café"></span> | Copyright 2024 AstroxLeMage</p>
             </div>
         </footer>
-
         <!-- COOKIES -->
         <div id="cookiesContainer"></div>
     </body>
