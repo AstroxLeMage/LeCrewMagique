@@ -57,6 +57,13 @@ h2 {
     width: 65px;
     height: 56px;
     margin-right: 10px;
+    transition: ease-in-out 0.2s;
+}
+
+.logo:hover {
+    -webkit-transform: translateY(-5%);
+    transform: translateY(-5%);
+
 }
 
 /*-- MENU  DESKTOP --*/
