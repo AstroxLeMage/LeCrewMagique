@@ -1,21 +1,74 @@
 /*-- MAGIC SCROLL --*/
-// Sélectionne tous les éléments correspondant à la classe '.section-container'
 const magicElements = document.querySelectorAll('.explorer');
-// Ajoute un écouteur d'événement au défilement de la fenêtre
-window.addEventListener('scroll', () => {
-    // Récupère la position de défilement verticale (scroll) et la hauteur visible de la fenêtre
-    const { scrollTop, clientHeight } = document.documentElement;
-    // Parcourt chaque élément sélectionné
+
+function playAnimation() {
     magicElements.forEach(magicElement => {
-        // Calcule la distance entre le haut de l'élément et le haut de la fenêtre visible
-        const topElementToTopViewport = magicElement.getBoundingClientRect().top;
-        // Vérifie si le défilement dépasse la position de l'élément moins une portion de la hauteur visible
-        if (scrollTop > scrollTop + topElementToTopViewport - clientHeight * 1) {
-            // Ajoute la classe 'active' à l'élément si la condition est remplie
-            magicElement.classList.add('active');
-        }
+        magicElement.classList.add('active');
     });
+}
+
+// Vérifie la largeur de l'écran au chargement initial
+if (window.innerWidth < 1024) { // Si c'est une tablette ou un mobile
+    playAnimation(); // Joue l'animation directement
+} else { // Pour les écrans plus larges (desktop)
+    // Ajoute un écouteur d'événement au défilement de la fenêtre
+    window.addEventListener('scroll', () => {
+        const { scrollTop, clientHeight } = document.documentElement;
+    
+        magicElements.forEach(magicElement => {
+            const topElementToTopViewport = magicElement.getBoundingClientRect().top;
+    
+            // Vérifie si le défilement dépasse la position de l'élément moins une portion de la hauteur visible
+            if (scrollTop > scrollTop + topElementToTopViewport - clientHeight * 0.9) {
+                // Ajoute la classe 'active' à l'élément si la condition est remplie
+                magicElement.classList.add('active');
+            }
+        });
+    });
+  }
+
+
+  /*-- TWITCH PLAYER --*/
+  let twitchPlayer = null;
+function loadTwitchPlayer() {
+    if (twitchPlayer === null) {
+        twitchPlayer = new Twitch.Player("twitch-embed", {
+            channel: "Astroxlemage",
+            width: "100%",
+            height: "100%",
+            layout: "video",
+        });
+    }
+}
+
+function handleResize() {
+    const container = document.getElementById("twitch-container");
+    const containerWidth = container.clientWidth; // Largeur du conteneur
+    const containerHeight = container.clientHeight; // Hauteur du conteneur
+
+    // Calculer la nouvelle hauteur en fonction du rapport d'aspect 16:9
+    const newHeight = containerWidth * (9 / 16);
+
+    // Mettre à jour les dimensions du lecteur Twitch en utilisant la taille du conteneur
+    twitchPlayer.setWidth(containerWidth);
+    twitchPlayer.setHeight(newHeight);
+
+    // Ajuster la position du lecteur pour rester centré verticalement dans le conteneur
+    const embedElement = document.getElementById("twitch-embed");
+    embedElement.style.top = `${(containerHeight - newHeight) / 2}px`;
+}
+
+// Charger le lecteur Twitch lorsque le document est prêt
+document.addEventListener("DOMContentLoaded", function() {
+    loadTwitchPlayer();
+
+    // Gérer les événements de redimensionnement de la fenêtre
+    window.addEventListener("resize", handleResize);
+
+    // Appeler handleResize une première fois pour initialiser les dimensions
+    handleResize();
 });
+
 
 /*-- MAGIC COOKIES --*/
 // Attend que le DOM soit chargé
@@ -108,6 +161,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
+
 /*-- MAGIC FAQ --*/
 $(document).ready(function() {
     var $open = $(".open");
@@ -187,3 +241,13 @@ var badgesImg = document.querySelector(".badges_img");
 // Ajoute des écouteurs d'événements pour le survol et la sortie de la souris
 badgesImg.addEventListener("mouseover", showPopover);
 badgesImg.addEventListener("mouseout", hidePopover);
+
+
+/* -- burger --*/
+            function openNav() {
+              document.getElementById("myNav").style.width = "100%";
+            }
+            
+            function closeNav() {
+              document.getElementById("myNav").style.width = "0%";
+            }

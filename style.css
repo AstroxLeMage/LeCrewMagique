@@ -4,21 +4,21 @@
 body {
     margin:0;
     padding:0;
-    background-color: #ffffff; /* A changer */
-    font-family: 'Montserrat', sans-serif; /* Police de base du site A CHECK */
-    color: #ffffff; /* Couleur police de base // A CHANGER */
+    background-color: #40333D;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
 }
 
-::selection { /* Couleur de selection ✅ */
+::selection {
     color:  #ffffff;
     background-color: #4663ad;
 }
 
-p { /* ✅ */
+p { 
     margin: 0;
 }
 
-h1 { /* Texte header  ✅ */
+h1 {
     font-size: 48px;
     text-align: center;
     font-family: 'Luckiest Guy', cursive;
@@ -26,8 +26,8 @@ h1 { /* Texte header  ✅ */
     margin: 0px;
 }
 
-h2 { /* Texte section ✅ */
-    width: 380px; /* Largeur */
+h2 { 
+    width: 380px;
     font-size: 50px;
     text-align: left;
     margin-top: 0;
@@ -35,8 +35,8 @@ h2 { /* Texte section ✅ */
 
 /*-- HEADER --*/
 .canvas {
-    height: 450px; /* Hauteur du header */
-    background-image: url(img/BannerV2.jpg); /* Illustration */
+    height: 450px;
+    background-image: url(img/BannerV2.jpg);
     background-repeat: no-repeat;
     background-color: #40333D;
     background-position: center;
@@ -49,23 +49,27 @@ h2 { /* Texte section ✅ */
     width: 95%;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 20px;
+    padding-top: 35px;
 }
 
-/*-- LOGO  ✅--*/
+/*-- LOGO --*/
 .logo {
     width: 65px;
     height: 56px;
     margin-right: 10px;
 }
 
-/*-- MENU --*/
+/*-- MENU  DESKTOP --*/
 .navLink {
     display: flex;
     list-style: none;
     padding: 15px 20px; 
     font-size: 16px; 
     font-weight: 500;
+}
+
+ul  {
+    margin: 0;
 }
 
 .navCat {
@@ -94,6 +98,73 @@ a {
 .navCat.anim-middle:hover:after {
     width: 50%;
 }
+
+/*-- MENU MOBILE--*/
+.burger {
+    font-size:40px;
+    cursor:pointer;
+    float: right;
+    position: absolute;
+    right: 30px;
+}
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    background-color: #261C24;
+    transition: 0.2s;
+  }
+  
+  .overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    
+  }
+  
+  .overlay a {
+    padding: 8px;
+    padding-bottom: 25px;
+    text-decoration: none;
+    font-size: 26px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+  }
+  
+  .overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+  }
+
+.lol {
+    margin-top: 125px;
+
+  }
+  
+  /* -- BURGER --*/
+  @media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+    }
+  }
+
 
 
 /*-- TEXT HEADER ✅ --*/
@@ -125,11 +196,16 @@ svg {
 
 /*-- TWITCH LECTEUR --*/
 #twitch {
-    position: absolute;
-    left: 0;
-    right: 0;
+    align-items: center;
+}
+
+#twitch-embed {
+    width: 750px; /* Largeur maximale du conteneur */
+    height: 420px; /* Hauteur maximale du conteneur */
     margin-top: -110px;
 }
+
+
 
 
 /* -- BOUTONS -- */
@@ -151,7 +227,7 @@ button { /* ✅ */
     background-color: #9146FF;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 350px;
+    margin-top: 50px;
 } 
 
 .twitch-btn img, .discord-btn img { /* ✅ */
@@ -182,13 +258,13 @@ section  { /* ✅ */
     display: flex;
     justify-content: center;
     color: #261C21;
+   
 }
 
 .section-container { /* ✅ */
     display: flex;
     justify-content: space-between;
     max-width: 1280px;
-    width: 95%;
     margin: 90px 0 90px;
 }
 
@@ -208,6 +284,15 @@ section  { /* ✅ */
     background-color: #E8E8E8;
 }
 
+.aboutTxt {
+    margin-left: 100px;
+    margin-right: none;
+}
+
+.discordTxt {
+    margin-right: 100px;
+}
+
 .textInfos {
     text-align: left;
     font-size: 20px;
@@ -217,11 +302,14 @@ section  { /* ✅ */
 
 .ubouxIllustration {
     height: 500px;
+    width: 100%;
+    object-fit: contain;
 }
 
 .discordIllustration {
-    height: auto;
-    width: 750px;
+    height: 494px;
+    width: 100%;
+    object-fit: contain;
 }
 
 
@@ -245,6 +333,8 @@ align-items: center;
 
 
 /* Design planning */
+
+
 .week {
  display: flex;
  font-family: 'Luckiest Guy', cursive;
@@ -315,6 +405,10 @@ align-items: center;
     cursor: pointer;
   }
 
+
+
+
+
 /* -- FOOTER -- */
 .footerContainer {
     background-color: #261C24;
@@ -325,7 +419,7 @@ align-items: center;
     margin: 80px 0 20px;
 }
 
-#socialElements { /* Englobe les icones ✅ */
+.socialElements { /* Englobe les icones ✅ */
     margin-bottom: 40px;
 }
 
