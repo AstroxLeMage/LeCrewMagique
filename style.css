@@ -777,6 +777,9 @@ span {
       .faq { /* ✅ */
         display: flex;
         flex-direction:column;
+        width: 1280px;
+        margin-left: 15px;
+        padding-right: 15px;
     }
 
     .h2_faq {
