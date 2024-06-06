@@ -204,12 +204,16 @@ svg {
 /*-- TWITCH LECTEUR --*/
 #twitch {
     align-items: center;
+    
 }
 
 #twitch-embed {
     width: 750px; /* Largeur maximale du conteneur */
     height: 420px; /* Hauteur maximale du conteneur */
     margin-top: -110px;
+    margin-top: -110px;
+    border-radius: 16px;
+    overflow: hidden; /* Masque le dépassement à l'intérieur du lecteur */
 }
 
 
