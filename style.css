@@ -366,40 +366,43 @@ align-items: center;
 }
 
 .liveOn {
+    position: relative;
     background-color:#c9b99f; 
-    height: 550px;
-    width: 200px;
     transition: ease-in-out 0.2s;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .liveDay {
+    position: absolute;
+    background-color: #c9b99f;
     margin-top: 5px;
     margin-bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 29px 3px 29px;
+    border-radius: 0 0 10px 10px;
 }
 
 .liveTheme {
-    height: 500px;
-    width: auto;
-    background-color: #373737;
-    margin-left: 15px;
-    margin-right: 15px;
+    margin: 6px;
+    margin-bottom: 0;
 }
 
 .liveHour {
+    position: absolute;
     background-color: #c9b99f;
-    padding-left: 15px;
-    padding-right: 20px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    float: right;
     border-radius: 5px;
+    right: 2%;
+    top: 95%;
+    padding: 0 18px 0 26px;
+    border-radius: 18px 0 0 0;
 }
 
 .liveTheme img {
     width: 100%;
     height: 100%;
-    object-fit:cover; 
+    object-fit:cover;
+    border-radius: 5px;
   }
 
   .ok {
