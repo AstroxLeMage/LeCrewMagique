@@ -1,5 +1,5 @@
 /*-- MAGIC SCROLL --*/
-const magicElements = document.querySelectorAll('.explorer');
+const magicElements = document.querySelectorAll('.magicScroll');
 
 function playAnimation() {
     magicElements.forEach(magicElement => {
@@ -243,11 +243,11 @@ badgesImg.addEventListener("mouseover", showPopover);
 badgesImg.addEventListener("mouseout", hidePopover);
 
 
-/* -- burger --*/
-            function openNav() {
-              document.getElementById("myNav").style.width = "100%";
-            }
+/* -- NAVIGATION | BURGER --*/
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
             
-            function closeNav() {
-              document.getElementById("myNav").style.width = "0%";
-            }
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}

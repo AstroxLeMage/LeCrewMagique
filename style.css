@@ -272,21 +272,21 @@ section  { /* ✅ */
    
 }
 
-.section-container { /* ✅ */
+.sectionContainer { /* ✅ */
     display: flex;
     justify-content: space-between;
     max-width: 1280px;
     margin: 90px 0 90px;
 }
 
-.explorer {
+.magicScroll {
     transform: translateY(20%);
     opacity: 0;
     transition: transform 0.6s ease-in-out,
     opacity 0.6s ease-in-out;
 }
 
-.explorer.active {
+.magicScroll.active {
     transform: translateY(0%);
     opacity: 1;
 }
@@ -325,10 +325,15 @@ section  { /* ✅ */
 
 
 /* PLANNING  */
+
+#planningContainer {
+    background-color: #E8E8E8;
+}
+
 .planning {
-display: flex;
-flex-direction: column;
-align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .h2_planning {
@@ -342,56 +347,60 @@ align-items: center;
     margin-bottom: 80px;
 }
 
-
-/* Design planning */
-
-
-.week {
- display: flex;
- font-family: 'Luckiest Guy', cursive;
- font-size: 20px;
- width: 900px;
- justify-content: center;
- justify-content: space-between;
- color: #69584b;
- text-transform: uppercase;
- margin-bottom: 90px;
+#weekContainer {
+    display: flex;
+    gap: 20px;
+    font-family: 'Luckiest Guy', cursive;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: #69584b;
+    margin-bottom: 90px;
 }
-
+   
+#weekContainer > :nth-child(2n) {
+    margin-top: 30px;
+}
+   
 .liveOff {
     background-color: #c9b99f; 
-    height: 550px;
+    height: 562px;
     width: 50px;
     writing-mode: vertical-rl;
     align-content: center;
-    text-orientation: mixed;
-    transition: ease-in-out 0.2s;
     border-radius: 5px;
 }
-
+   
 .liveOn {
     position: relative;
     background-color:#c9b99f; 
-    transition: ease-in-out 0.2s;
+    height: 562px;
     border-radius: 10px;
+}
+
+.liveOn, .liveOff {
+    transition: ease-in-out 0.2s;
+}
+
+.liveOn:hover, .liveOff:hover {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    cursor: pointer;
 }
 
 .liveDay {
     position: absolute;
     background-color: #c9b99f;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    border-radius: 0 0 10px 10px;
     left: 50%;
     transform: translateX(-50%);
-    padding: 0 29px 3px 29px;
-    border-radius: 0 0 10px 10px;
+    padding: 2px 30px 2px 30px;
 }
-
+   
 .liveTheme {
     margin: 6px;
     margin-bottom: 0;
-}
-
+   }
+   
 .liveHour {
     position: absolute;
     background-color: #c9b99f;
@@ -401,25 +410,12 @@ align-items: center;
     padding: 0 18px 0 26px;
     border-radius: 18px 0 0 0;
 }
-
+   
 .liveTheme img {
     width: 100%;
-    height: 100%;
     object-fit:cover;
     border-radius: 5px;
-  }
-
-  .ok {
-    margin-top: 30px;
-  }
-
-  .liveOn:hover, .liveOff:hover {
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
-    cursor: pointer;
-  }
-
-
+}
 
 
 
@@ -477,14 +473,6 @@ transform: translateY(-20%);
 
 .coffee { /* Icone Café ✅ */
     width: 18px;
-}
-
-
-/*------------------------------------------------*/
-/* -- EVENTS --*/
-.event { /* A FAIRE PLUS TARD */
-    width: auto;
-    text-align: center;
 }
 
 

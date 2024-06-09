@@ -7,7 +7,6 @@
         <meta name="title" content="ALM | Le Crew Magique">
         <meta name="description" content="Le Crew Magique est le site dédies à la communauté d'AstroxLeMage, streamer belge | Stream le mardi & jeudi soir dans la joie et la bonne humeur sur tous type de jeux, sans pression... ou presque... ! ">
         <meta name="author" content="AstroxLeMage">
-
         <meta property="og:site_name" content="AstroxLeMage">
         <meta property="og:title" content="ALM | Le Crew Magique">
         <meta property="og:description" content="Le Crew Magique est le site dédies à la communauté d'AstroxLeMage, streamer belge | Stream le mardi & jeudi soir dans la joie et la bonne humeur sur tous type de jeux, sans pression... ou presque... !">
@@ -16,7 +15,6 @@
         <meta property="og:url" content="https://astroxlemage.github.io/LeCrewMagique/">
         <meta property="og:type" content="website">
 	    <meta property="og:locale" content="fr_FR">
-
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="styleMobile.css">
         <link rel="shortcut icon" type="image/png" href="favicon.png">
@@ -123,7 +121,7 @@
             </button>
             <!-- SECTION // ABOUT // -->
             <section class="uboux">
-                <div class="section-container explorer test">
+                <div class="sectionContainer magicScroll">
                     <img class="ubouxIllustration" src="img/uboux-img.png" alt="Illustration avec AstroxLeMage">
                     <div class="text aboutTxt">
                         <h2>Un contenu aux petits oignons</h2>
@@ -133,7 +131,7 @@
             </section>
             <!-- SECTION // DISCORD // -->
             <section> 
-                <div class="section-container explorer">
+                <div class="sectionContainer magicScroll">
                     <div class="text discordTxt">
                         <h2>Explore, partage et échange</h2>
                         <p class="textInfos">Rejoins le serveur Discord pour être informé du prochain live, partager, jouer et discuter à l’écrit ou en vocal avec les membres du Crew Magique !</p>
@@ -145,56 +143,59 @@
                 </div>
             </section>
             <!-- SECTION // PLANNING  // -->
-            <section class="uboux pln"> 
-                <div class="section-container planning explorer test">
-                    <div class="text">
+            <section id="planningContainer"> 
+                <div class="sectionContainer planning magicScroll ">
+                    <div class="planningTitle">
                         <h2 class="h2_planning">Planning de la semaine</h2>
                         <p class="textInfos textPlanning">Retrouvons-nous les mardis et jeudis soirs pour de nouvelles aventures ! Surveille tes notifications car des streams random peuvent également apparaître.</p>
                     </div>
-                    <!-- PLANNING // WEEK -->
-                    <div class="week-container">
-                        <div class="week">
-                            <!-- LUNDI -->
-                            <div class="liveOff">
-                                <p>Lundi | Off</p>
+                    <div id="weekContainer">
+                        <!-- LUNDI -->
+                        <div class="liveOff">
+                            <p>Lundi | Off</p>
+                        </div>
+                         <!-- MARDI -->
+                        <div class="liveOn">
+                            <p class="liveDay">Mardi</p>
+                        <div class="liveTheme">
+                              <img src="img/planningCover/MafiaCover.jpg" alt="Mafia 1">
+                        </div>
+                             <div class="liveHour">
+                                <p>20h</p>
+                             </div>
+                         </div>
+                        <!-- MERCREDI -->
+                        <div class="liveOff ok">
+                            <p>Mercredi | Off</p>
+                        </div>
+                        <!-- JEUDI -->
+                        <div class="liveOn">
+                            <p class="liveDay">Jeudi</p>
+                            <div class="liveTheme">
+                                <img src="img/planningCover/AC_BrotherhoodCover.jpg" alt="Assassin's Creed">
                             </div>
-                            <!-- MARDI -->
-                            <div class="liveOn ok">
-                                <p class="liveDay">Mardi</p>
-                                <div class="liveTheme">
-                                    <img src="img/planningCover/MafiaCover.jpg" alt="Mafia 1 Cover">
-                                </div>
-                                <div class="liveHour">
-                                    <p>20h</p>
-                                </div>
-                            </div>
-                            <!-- MERCREDI -->
-                            <div class="liveOff">
-                                <p>Mercredi | Off</p>
-                            </div>
-                            <!-- JEUDI -->
-                            <div class="liveOn ok">
-                                <p class="liveDay">Jeudi</p>
-                                <div class="liveTheme">
-                                        <img class="image-hover" src="img/planningCover/AC_BrotherhoodCover.jpg" alt="Assassin's Creed Brotherhood Cover">
-                                </div>
-                                <div class="liveHour">
-                                    <p>20h</p>
-                                </div>
-                            </div>
-                            <!-- VENDREDI -->
-                            <div class="liveOff">
-                                <p>Vendredi | Off</p>
-                            </div>
-                            <!-- SAMEDI -->
-                            <div class="liveOff ok">
-                                <p>Samedi | Off</p>
-                            </div>
-                            <!-- DIMANCHE -->
-                            <div class="liveOff">
-                                <p>Dimanche | Off</p>
+                            <div class="liveHour">
+                                <p>16h</p>
                             </div>
                         </div>
+                        <!-- VENDREDI -->
+                        <div class="liveOn">
+                            <p class="liveDay">Vendredi</p>
+                            <div class="liveTheme">
+                                <img src="img/planningCover/fallguysCover.jpg" alt="Fall Guys 1">
+                            </div>
+                            <div class="liveHour">
+                                <p>16h30</p>
+                            </div>
+                        </div>
+                        <!-- SAMEDI -->
+                        <div class="liveOff">
+                            <p>Samedi | Off</p>
+                        </div>
+                        <!-- DIMANCHE -->
+                       <div class="liveOff">
+                           <p>Dimanche | Off</p>
+                       </div>
                     </div>
                 </div>
             </section>                

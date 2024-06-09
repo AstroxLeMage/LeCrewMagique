@@ -31,7 +31,7 @@ h2 {
 }
 
 
-.section-container { /* ✅ */
+.sectionContainer { /* ✅ */
     display: flex;
     flex-direction: column-reverse;
     margin: 45px 0 45px;
@@ -82,14 +82,14 @@ h2 {
 
 
 /* Conteneur pour le défilement horizontal */
-.week-container {
+#weekContainer {
     overflow-x: auto;
     width: 100%;
     margin-top: 80px;
 }
 
 /* Design planning */
-.week {
+#weekContainer {
     display: flex;
     font-family: 'Luckiest Guy', cursive;
     font-size: 20px;
