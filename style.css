@@ -36,11 +36,13 @@ h2 {
 /*-- HEADER --*/
 .canvas {
     height: 450px;
-    background-image: url(img/BannerV2.jpg);
+    background-image: url(img/Banner1.jpg);
     background-repeat: no-repeat;
     background-color: #40333D;
     background-position: center;
+    background-size: contain;
 }
+
 
 /*-- NAVIGATION CONTAINER --*/
 .navContainer {
@@ -63,7 +65,6 @@ h2 {
 .logo:hover {
     -webkit-transform: translateY(-5%);
     transform: translateY(-5%);
-
 }
 
 /*-- MENU  DESKTOP --*/
@@ -325,9 +326,23 @@ section  { /* ✅ */
 
 
 /* PLANNING  */
-
 #planningContainer {
-    background-color: #E8E8E8;
+    position: relative;
+    background-image: url(img/planning_bg.jpg);
+    background-repeat: no-repeat;
+    background-color: #261C24;
+    background-size: cover;
+    color: #ffffff;
+}
+
+#planningContainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #261C24 100%);
 }
 
 .planning {
@@ -354,7 +369,10 @@ section  { /* ✅ */
     text-transform: uppercase;
     font-size: 20px;
     color: #69584b;
-    margin-bottom: 90px;
+}
+
+#weekContainer > div {
+    flex: 0 0 auto; /* Empêche les enfants de rétrécir ou de s'étendre */
 }
    
 #weekContainer > :nth-child(2n) {
@@ -378,6 +396,7 @@ section  { /* ✅ */
 }
 
 .liveOn, .liveOff {
+
     transition: ease-in-out 0.2s;
 }
 
@@ -843,13 +862,16 @@ span {
     border-spacing: 0px; 
     padding: 10px;
     margin-bottom: 90px;
+    
 }
+
 
 
 .title_cmd {
     font-size: 25px;
     text-transform: uppercase;
     text-align: center;
+    table-layout: fixed;
 }
 
 .alias_container {
@@ -868,7 +890,7 @@ span {
 td {
     height: auto;
     padding: 30px 20px 30px 20px;
-    border-bottom: 2px solid #C9C9C9;;
+    border-bottom: 2px solid #C9C9C9;
 }
 
 .colorcmd {

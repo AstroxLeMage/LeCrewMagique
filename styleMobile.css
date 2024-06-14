@@ -81,28 +81,17 @@ h2 {
 }
 
 
-/* Conteneur pour le défilement horizontal */
-#weekContainer {
-    overflow-x: auto;
-    width: 100%;
-    margin-top: 80px;
-}
-
-/* Design planning */
-#weekContainer {
+/*-- planning --*/
+.planning {
     display: flex;
-    font-family: 'Luckiest Guy', cursive;
-    font-size: 20px;
-    color: #69584b;
-    text-transform: uppercase;
-  
-    min-width: 100%; /* Largeur minimale pour éviter le débordement */
+    flex-direction: column;
 }
 
-
+#weekContainer {
+        overflow-x: auto; /* Ajoute un overflow horizontal */
+    white-space: nowrap; /* Empêche les éléments de se plier à la ligne suivante */
+    padding-bottom: 10px; /* Espace pour le défilement si besoin */
 }
-
-
 /*-- TABLETTE  // MEDIUM --*/ 
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
     .burger {
