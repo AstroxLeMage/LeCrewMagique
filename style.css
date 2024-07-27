@@ -902,9 +902,10 @@ td {
     border-bottom: 2px solid #C9C9C9;
 }
 
-.colorcmd {
-    background-color: #E8E8E8;;
+tr:nth-child(even) {
+    background-color: #E8E8E8;
 }
+
 
 .box_cmd {
     border: solid 2px #261C21;
