@@ -24,6 +24,7 @@ h1 {
     font-family: 'Luckiest Guy', cursive;
     letter-spacing: 2px;
     margin: 0px;
+    text-transform: uppercase;
 }
 
 h2 { 
