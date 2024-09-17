@@ -149,7 +149,6 @@ a {
     right: 55px;
     top: 90px;
     width: auto;
-    z-index: 1; /* Ajout d'un z-index pour s'assurer que le menu est au-dessus des autres éléments */
 }
 
 .dropdown-arrow {
@@ -187,7 +186,6 @@ a {
     background-color: #2C2029;
 }
 
-/* Lorsque la classe "dropdown" ou "dropContainer" est survolée, montrer .dropContainer */
 .dropdown:hover .dropContainer,
 .dropContainer:hover {
     display: block;
