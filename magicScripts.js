@@ -251,3 +251,22 @@ function openNav() {
 function closeNav() {
   document.getElementById("myNav").style.width = "0%";
 }
+
+
+
+
+/*----------------------------------*/
+
+
+/*-- Dropdown Navigation --*/
+function showDropdown() {
+    clearTimeout(dropdownTimeout); // Annuler tout délai de disparition
+    document.querySelector('.dropContainer').style.display = 'block'; // Afficher le menu
+}
+
+function hideDropdown() {
+    // Ajouter un délai avant de masquer le menu
+    dropdownTimeout = setTimeout(() => {
+        document.querySelector('.dropContainer').style.display = 'none';
+    }, 300); // 300ms de délai avant disparition
+}

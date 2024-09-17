@@ -24,6 +24,7 @@ h1 {
     font-family: 'Luckiest Guy', cursive;
     letter-spacing: 2px;
     margin: 0px;
+    margin-top: 0;
     text-transform: uppercase;
 }
 
@@ -52,17 +53,20 @@ h2 {
     background-repeat: no-repeat;
     background-color: #40333D;
     background-position: center;
+    background-size: cover;
 }
 
 
 /*-- NAVIGATION CONTAINER --*/
 .navContainer {
-    display: flex;
-    max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 60px;
-    padding-top: 35px;
+    background-color: rgba(38, 28, 36, 0.7) ;
+    border-radius: 15px;
+    display: inline-flex;
+    margin-bottom: 70px;
+    margin-left: 35px;
+    margin-right: 35px;
+    transform: translateY(35px);
+
 }
 
 /*-- LOGO --*/
@@ -71,6 +75,9 @@ h2 {
     height: 56px;
     margin-right: 10px;
     transition: ease-in-out 0.2s;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 40px;
 }
 
 .logo:hover {
@@ -83,8 +90,9 @@ h2 {
     display: flex;
     list-style: none;
     padding: 15px 20px; 
-    font-size: 16px; 
-    font-weight: 500;
+    font-size: 18px; 
+    font-weight: 600;
+    align-items: center;
 }
 
 ul  {
@@ -94,6 +102,7 @@ ul  {
 .navCat {
     padding-right: 30px;
     text-decoration: none;
+    padding: 12px 13px 12px 13px;
 }
 
 a {
@@ -103,21 +112,86 @@ a {
     align-items: center;
 }
 
-.navCat.anim-middle:after {
-    content: '';
+.navCat:hover {
+    background-color: #41323d;
+    padding: 12px 13px 12px 13px;
+    border-radius: 5px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 200,
+  'GRAD' 200,
+  'opsz' 16
+}
+
+/* Styles pour le bouton dropdown */
+.dropbtn {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    height: 0;
+    cursor: pointer;
+}
+
+/* Styles pour le dropdown */
+.dropContainer {
+    display: none;
+    position: absolute;
+    background-color: #1E181D;
+    border-radius: 10px;
+    right: 55px;
+    top: 90px;
+    width: auto;
+    z-index: 1; /* Ajout d'un z-index pour s'assurer que le menu est au-dessus des autres éléments */
+}
+
+.dropdown-arrow {
+    position: absolute;
+    background-color: #1E181D;
+    height: 25px;
+    width: 25px;
+    transform: rotate(45deg) translate(-50%);
+    right: 50%;
+    left: 50%;
+}
+
+/* Style des liens dans le dropdown */
+.dropContainer a {
+    color: white;
+    padding: 5px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.dropLink {
+    list-style: none;
+    padding: 12px 13px 12px 13px;
+    border-radius: 5px;
+    transition: 0.2s;
+    cursor: pointer;    
+    margin: 0;
+}
+
+.dropColor {
+    margin: 0;
+}
+
+.dropColor:hover {
+    background-color: #2C2029;
+}
+
+/* Lorsque la classe "dropdown" ou "dropContainer" est survolée, montrer .dropContainer */
+.dropdown:hover .dropContainer,
+.dropContainer:hover {
     display: block;
-    width: 0;
-    height: 2px;
-    background: white;
-    margin: auto;
-    margin-top: 5px;
-    transition: all .2s ease;
 }
-
-.navCat.anim-middle:hover:after {
-    width: 50%;
-}
-
 /*-- MENU MOBILE--*/
 .burger {
     font-size:40px;
@@ -188,7 +262,7 @@ a {
 
 /*-- TEXT HEADER ✅ --*/
 .textHeader { /* Une quête épique... */
-    margin: 40px 0 150px;
+    margin: 0px 0 150px;
     text-align: center;
 }
 
@@ -222,13 +296,14 @@ svg {
 #twitch-embed {
     width: 750px; /* Largeur maximale du conteneur */
     height: 420px; /* Hauteur maximale du conteneur */
-    margin-top: -110px;
-    margin-top: -110px;
+    margin-top: -100px;
     border-radius: 16px;
     overflow: hidden; /* Masque le dépassement à l'intérieur du lecteur */
 }
 
-
+.po {
+    margin-top: 20px;
+}
 
 
 /* -- BOUTONS -- */
@@ -978,8 +1053,7 @@ tr:nth-child(even) {
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 90px;
-   max-width: 1280px;
-   min-width: 300px;
+
     align-items: stretch;
     align-content: flex-end;
     gap: 10px;
@@ -990,6 +1064,7 @@ tr:nth-child(even) {
     border-radius: 10px;
     height: 300px;
     width: 300px;
+    flex-basis: auto
 }
 
 .noBadges {
