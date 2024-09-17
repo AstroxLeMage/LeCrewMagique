@@ -257,16 +257,21 @@ function closeNav() {
 
 /*----------------------------------*/
 
-
-/*-- Dropdown Navigation --*/
 function showDropdown() {
-    clearTimeout(dropdownTimeout); // Annuler tout délai de disparition
-    document.querySelector('.dropContainer').style.display = 'block'; // Afficher le menu
+    clearTimeout(dropdownTimeout); // Annule tout délai de disparition
+    const dropContainer = document.querySelector('.dropContainer');
+    dropContainer.style.display = 'block'; // Affiche le menu
+    setTimeout(() => {
+        dropContainer.style.opacity = '1'; // Commence la transition d'opacité
+        dropContainer.style.visibility = 'visible'; // Assure la visibilité
+    }, 10); // Petit délai pour permettre l'affichage initial avant la transition
 }
 
 function hideDropdown() {
-    // Ajouter un délai avant de masquer le menu
+    const dropContainer = document.querySelector('.dropContainer');
+    dropContainer.style.opacity = '0'; // Commence la transition de disparition
+    dropContainer.style.visibility = 'hidden'; // Cache le menu après la transition
     dropdownTimeout = setTimeout(() => {
-        document.querySelector('.dropContainer').style.display = 'none';
-    }, 300); // 300ms de délai avant disparition
+        dropContainer.style.display = 'none'; // Cache l'élément après la transition
+    }, 300); // Durée de la transition
 }

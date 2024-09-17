@@ -149,6 +149,7 @@ a {
     right: 55px;
     top: 90px;
     width: auto;
+    transition: 0.5s ease-in-out;
 }
 
 .dropdown-arrow {
