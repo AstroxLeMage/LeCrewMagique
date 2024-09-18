@@ -59,7 +59,8 @@ h2 {
 
 /*-- NAVIGATION CONTAINER --*/
 .navContainer {
-    background-color: rgba(38, 28, 36, 0.7) ;
+    background-color: rgba(38, 28, 36, 0.7);
+    backdrop-filter: blur(5px);
     border-radius: 15px;
     display: inline-flex;
     margin-bottom: 70px;
