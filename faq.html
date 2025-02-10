@@ -28,35 +28,48 @@
     </head>
 
     <body>
-        <div class="newsHeader">
-            <p><b>[Mode vacances]</b> On fait une petite pause et on se retrouve en septembre pour de nouvelles aventures !</p>
-        </div>
         <div id="progressBar">
             <div id="progress"></div>
         </div>
         <!-- HEADER -->
         <header class="canvas_faq"> <!-- Contient le header / Illustration + la navigation -->
             <!-- NAVIGATION -->
-            <nav class="navContainer"> <!-- Englobe logo + links -->
+            <nav class="navContainer">
                 <!-- LOGO -->
                 <a href="index.html">
                     <img class="logo" src="img/LCM.png" alt="Logo du Crew Magique">
                 </a>
-                <!-- LINKS -->
+                <!-- LINKS DESKTOP -->
                 <ul class="navLink">
-                    <li class="navCat anim-middle">
-                        <a href="index.html">Accueil</a>
+                    <li class="navCat"> 
+                        <a href="https://www.twitch.tv/astroxlemage/videos" target="_blank">Rediffusions</a>
                     </li>
-                    <li class="navCat anim-middle"> 
-                        <a href="https://www.twitch.tv/astroxlemage/videos" target="_blank">Rediffusions </a>
-                    </li>
-                    <li class="navCat anim-middle"> 
+                    <li class="navCat"> 
                         <a href="https://www.twitch.tv/astroxlemage/clips?filter=clips&range=all" target="_blank">Clips</a>
                     </li>
-                    <li class="navCat anim-middle">
-                        <a href="faq.html">Codex</a>
+                    <li class="navCat dropdown" onmouseover="showDropdown()" onmouseout="hideDropdown()">                        
+                        <button  onclick="window.location.href='faq.html'; toggleDropdown(event);" class="dropbtn">Codex
+                            <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                        </button>
+                        <div class="dropContainer">
+                            <div class="dropdown-arrow"></div>
+                            <ul class="dropLink ">    
+                                <li class="navCat dropColor">
+                                    <a href="commandes.html">Guide des !Commandes</a>
+                                </li>
+                                <li class="navCat dropColor">
+                                    <a href="succes.html">Souvenirs Mémorables</a>
+                                </li><!--
+                                <li class="navCat dropColor noneLink">
+                                    <a href="#">Grimoire d’Expérience</a>
+                                </li> -->
+                            </ul>
+                        </div>
                     </li>
-                </ul>
+                    <li class="navCat"> 
+                        <a href="https://rickroll.it/rickroll.mp4" target="_blank">Boutique</a>
+                    </li>
+                </ul> 
             </nav>
             <!-- TEXT HEADER -->
             <div class="textHeader">
@@ -129,7 +142,8 @@
                                 <b>- Souris:</b> Logitech Gaming Mouse G203.<br>
                                 <b>- Micro:</b> HyperX HX-MICQC-BK QuadCast.<br>
                                 <b>- Webcam:</b> Razer Kiyo X.<br>
-                                <b>- Casque:</b> Sennheiser 400S.<br><br>
+                                <b>- Casque:</b> Sennheiser 400S.<br>
+                                <b>- Tablette:</b> Galaxy Tab A9+. <br><br>
                                 <b>- Volant:</b> Driving Force GT.<br>
                                 <b>- Manette:</b> Xbox One | Starfield EDITION.
                             </p>
@@ -139,22 +153,21 @@
                             <div class="open">
                                 <h2 class="question">Quels types de contenu proposes-tu ?<span class="faqTag">Live Stream Contenu</span></h2>
                             </div>
-                            <p class="answer">Essentiellement du gaming solo et parfois mutli. Mais je reste ouvert à l'idée de proposer d'autres concepts à l'avenir sur la chaine.</p>
+                            <p class="answer">Essentiellement du gaming solo et parfois mutli. Mais je reste ouvert à l'idée de proposer d'autres concepts à l'avenir sur la chaine. Tu peux suivre l'avancement de notre aventure vidéoludique sur <a class="faqLink" href="https://gamelog.me/astroxlemage">Gamelog</a>.</p>
                         </div>
 
                         <div class="faqTopic_container  ">
                             <div class="open">
                                 <h2 class="question">Y a-t-il des moyens de soutenir la chaîne ou la communauté pendant ou en dehors des streams ?<span class="faqTag">Soutien Soutenir Live Stream</span></h2>
                             </div>
-                            <p class="answer">Évidemment ! Tu es libre de partager ou liker les posts sur les réseaux sociaux, de créer des clips, de regarder les lives ou les rediffusions, d'interagir dans le tchat ou de simplement observer. On n'oublie pas les viewers de l'ombre ! Tu peux aussi rejoindre le <a class="faqLink" href="https://discord.gg/3hcqBtTdcu">Discord</a>  pour discuter ou jouer avec les autres membres du Crew Magique. Enfin, tu as la possibilité d'intégrer le <a class="faqLink" href="https://steamcommunity.com/groups/LeCrewMagique">groupe steam</a> pour des sessions de jeu en multijoueur.</p>
+                            <p class="answer">Évidemment ! Tu es libre de partager ou liker les posts sur les réseaux sociaux, de créer des clips, de regarder les lives ou les rediffusions, d'interagir dans le tchat ou de simplement observer. On n'oublie pas les viewers de l'ombre ! Tu peux aussi rejoindre le <a class="faqLink" href="https://discord.gg/3hcqBtTdcu">Discord</a> pour discuter ou jouer avec les autres membres du Crew Magique.</p>
                         </div>
 
                         <div class="faqTopic_container">
                             <div class="open">
                                 <h2 class="question">Quelles personnes assurent la modération ?<span class="faqTag">Modération</span></h2>
                             </div>
-                            <p class="answer">Il y a actuellement 2 modérateur(trice)s qui vont et viennent sur la chaine et le <a class="faqLink" href="https://discord.gg/3hcqBtTdcu">Discord</a>:<br>
-                               Elyranne et Tom_Regor.</p>
+                            <p class="answer">Il y a actuellement des modérateur(trice)s qui vont et viennent sur la chaine et le <a class="faqLink" href="https://discord.gg/3hcqBtTdcu">Discord</a></p>
                         </div>
 
                         <div class="faqTopic_container">
@@ -162,7 +175,9 @@
                                 <h2 class="question">À quoi sert principalement le site "Le Crew Magique" ?<span class="faqTag">Site Crew Magique</span></h2>
                             </div>
                             <p class="answer">Au départ, je n'avais pas d'idée précise, mais avec la chaîne <a class="faqLink" href="https://twitch.tv/astroxlemage">Twitch</a> en tête, j'ai construit un univers autour. J'ai conçu des éléments spécifiques pour la chaîne, comme des alertes et des emotes, et j'ai étendu cette idée à un site dédié.<br><br>
-                            L'objectif principal est de rassembler toutes les informations concernant le Crew Magique en un seul et même endroit. D'autres fonctionnalités sont à venir, le site et la chaîne évolueront au fil du temps pour offrir davantage d'interactivité et de nouvelles expériences.</p>
+                            L'objectif principal est de rassembler toutes les informations concernant le Crew Magique en un seul et même endroit. D'autres fonctionnalités sont à venir, le site et la chaîne évolueront au fil du temps pour offrir davantage d'interactivité et de nouvelles expériences.<br><br>
+                        
+                            Mais c'est avant tout, un projet personnel qui me permet de m'amuser sur mon temps libre tout en expérimentant dans les domaines du développement web et du graphisme.</p>
                         </div>
 
                         <div class="faqTopic_container">
@@ -171,9 +186,10 @@
                                     <span class="faqTag">Réseaux Sociaux Twitter X Threads Twitch Discord</span></h2>
                             </div>
                             <p class="answer">Je suis présent et "actif" sur plusieurs plateformes:<br>
-                                <a class="faqLink" href="https://twitter.com/astroxlemage">X</a> | 
-                                <a class="faqLink" href="https://www.threads.net/@astroxlemage">Threads</a> et 
-                                <a class="faqLink" href="https://www.instagram.com/astroxlemage/">Instagram</a>.
+                                <a class="faqLink" href="https://twitter.com/astroxlemage">Twitter</a> | 
+                                <a class="faqLink" href="https://www.threads.net/@astroxlemage">Threads</a> 
+                                <a class="faqLink" href="https://bsky.app/profile/astroxlemage.bsky.social">Bluesky</a> et biensur
+                                <a class="faqLink" href="https://twitch.tv/astroxlemage">Twitch</a>.
                             </p>
                         </div>
 
@@ -181,7 +197,8 @@
                             <div class="open">
                                 <h2 class="question">Comment rejoindre le Discord ? <span class="faqTag">Discord Crew Magiqiue Rejoindre</span></h2>
                             </div>
-                            <p class="answer">Tu peux accéder au <a class="faqLink" href="https://discord.gg/3hcqBtTdcu">Discord</a>  du Crew Magique directement sur le site ou bien via ma chaine <a class="faqLink" href="https://twitch.tv/astroxlemage">Twitch</a>. Une fois sur le serveur n'oublie pas de lire et d'accepter le règlement pour passer au grade supérieur: "Magicen(ne)s" qui te donnera l'accès totale aux différents channels.
+                            <p class="answer">Tu peux accéder au <a class="faqLink" href="https://discord.gg/3hcqBtTdcu">Discord</a>  du Crew Magique directement sur le site ou bien via ma chaine <a class="faqLink" href="https://twitch.tv/astroxlemage">Twitch</a>. Une fois sur le serveur n'oublie pas de lire et d'accepter le règlement pour passer au grade supérieur: "Magicen(ne)s" qui te donnera l'accès totale aux différents channels.<br><br>
+                                <b>[Edit]</b> Depuis avril 2024, le processus d'accueil est activé pour faciliter votre arrivée sur le serveur, incluant l'activation du grade "Apprenti(e)" et l'acceptation du règlement, ainsi que quelques ajustements des différents grades.</p>
                             </p>
                         </div>
 
@@ -231,7 +248,7 @@
                 </svg>
             </div>
             <div id="copyright">
-                <p class="copyrightText">Conçu avec une dose massive de <span><img class="coffee" src="img/cofeeIcon.png" alt="Icone tasse de café"></span> | Copyright 2024 AstroxLeMage</p>
+                <p class="copyrightText">Conçu avec une dose massive de <span><img class="coffee" src="img/cofeeIcon.png" alt="Icone tasse de café"></span> | Copyright 2025 AstroxLeMage</p>
             </div>
         </footer>
         <!-- COOKIES -->

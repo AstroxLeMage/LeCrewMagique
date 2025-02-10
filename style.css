@@ -94,11 +94,9 @@ h2 {
     font-size: 18px; 
     font-weight: 600;
     align-items: center;
-}
-
-ul  {
     margin: 0;
 }
+
 
 .navCat {
     padding-right: 30px;
@@ -886,6 +884,7 @@ span {
         flex-direction:column;
         width: 1280px;
         margin-top: 80px;
+        margin-bottom: 90PX;
     }
 
     .h2_faq {
