@@ -738,59 +738,140 @@ span {
 
 
     .canvas_faq {
-        background-image: url(img/faq_bg.jpg);
+        background-image: url(img/banner_codex.jpg);
         background-repeat: no-repeat;
         background-color: #40333D;
         background-position: center;
-        /*background-size: cover;*/
+        background-size: cover;
         height: 483px;
     }
 
 
-/*-- SECTION --> COMMANDES + HF + RANK --*/
-.helpContainer {
-    background-color: #5A77C3;
-    width: 400px;
-    margin-top: -70px;
-    margin-left: 20px;
-    margin-right: 20px;
-    border-radius: 15px;
+/*-- SECTION --> COMMANDES + HF + RANK TOP 10 --*/
+.bannerShape {
+    height: 390px;
+    width: 410px;
+    margin: -70px 20px 0 20px;
+    position: relative;
     color: #ffffff;
-    clip-path: polygon(0 0, 100% 0, 100% 76%, 50% 100%, 0 76%);
-    height: 500px;
-    flex-wrap:wrap;
-    border: 8px #2F3D72;
-    border-top-style: solid;
 }
 
-.grimmoire {
-    background-color: #8E4DC1;
-    border-color: #4C2F75;
+.bannerShape:after, .bannerBorder:after, .bannerContainer:after {
+    content: "";
+    position: absolute;
+}
+  
+.bannerShape:after {
+    bottom: -100px;
+    left: 0;
+    border-left: 205px solid transparent;
+    border-right: 205px solid transparent;
+    border-top: 100px solid #5A77C3;
 }
 
-.hf {
+.bannerShape, .bannerBorder {
+    display: flex;
+    justify-content: center;
+}
+
+.bannerBorder {
+    height: 360px;
+    width: 380px;
+    position: relative;
+}
+
+.bannerBorder:after {
+    z-index: 1;
+    bottom: -100px;
+    left: 0;
+    border-left: 190px solid transparent;
+    border-right: 190px solid transparent;
+    border-top: 100px solid #2F3D72;
+}
+
+.bannerContainer {
+    height: 360px;
+    width: 355px;
+    position: relative;
+    margin-top: -15px;
+}
+  
+.bannerContainer:after {
+    z-index: 2;
+    bottom: -100px;
+    left: 0;
+    border-left: 177px solid transparent;
+    border-right: 177px solid transparent;
+    border-top: 100px solid #5A77C3;
+}
+
+  
+/* -- Guide des commandes --*/
+.codexCommandes {
+    background-color: #5A77C3;
+}
+
+.codexCommandes_border {
+    background-color: #2F3D72;
+}
+
+/*-- Souvenirs Mémorables --*/
+.codexTop {
     margin-top: -120px;
+}
+
+.codexSouvenirs {
     background-color: #A93F63;
-    border-color: #772F49;
 }
 
-.help_h2 {
-    text-align: center;
-    margin-top: 20px;
+.codexSouvenirs::after {
+    border-top: 100px solid #A93F63;
+}
+
+.codexSouvenirs_border {
+    background-color: #772F49;    
+}
+
+.codexSouvenirs_border::after {
+    border-top: 100px solid #772F49;
+}
+
+/*-- Grimoire Experience --*/
+.codexGrimoire {
+    background-color: #8E4DC1;
+}
+
+.codexGrimoire::after {
+    border-top: 100px solid #8E4DC1;
+}
+
+.codexGrimoire_border {
+    background-color: #4C2F75;
+}
+
+.codexGrimoire_border::after {
+    border-top: 100px solid #4C2F75;
+}
+
+
+/*-- Codex Container --*/ 
+.codexPage {
+    margin-top: 40px;
     font-size: 40px;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
+    width: auto;
 }
 
-.helpText {
-    padding-left: 20px;
-    padding-right: 20px;
+.codexText {
+    padding-left: 5px;
+    padding-right: 5px;
     font-size: 20px;
     line-height: 160%;
     min-height: 150px;
+    margin-bottom: -15px;
 }
 
-.helpLink {
+.codexLink {
     font-size: 20px;
     display: flex;
     justify-content: center;
@@ -798,22 +879,21 @@ span {
     font-weight: 600;
 }
 
-.indev {
+.indev { /* ENCOURS -*/
     cursor: not-allowed;
 }
-
 
 .material-symbols-outlined {
     padding-left: 5px;
     transition: 0.2s;
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 500,
-  'GRAD' 0,
-  'opsz' 24
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 500,
+    'GRAD' 0,
+    'opsz' 24
 }
 
-.helpLink:hover .material-symbols-outlined {
+.codexLink:hover .material-symbols-outlined {
     transform: translateX(15%);
 }
 
@@ -824,6 +904,7 @@ span {
     color: #261C21;
     width: auto;
     margin-bottom: 50px;
+    margin-top: 90px;
 }
 
 
