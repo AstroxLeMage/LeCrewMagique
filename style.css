@@ -377,7 +377,7 @@ section  { /* ✅ */
     opacity: 1;
 }
 
-.uboux { /* Contenu aux petit oignons ✅ */
+.aboutStream { /* Contenu aux petit oignons ✅ */
     background-color: #E8E8E8;
 }
 
@@ -397,7 +397,7 @@ section  { /* ✅ */
     width: 380px;
 }
 
-.ubouxIllustration {
+.aboutIllustration {
     height: 500px;
     width: 100%;
     object-fit: contain;
