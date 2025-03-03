@@ -60,14 +60,12 @@ h2 {
 /*-- NAVIGATION CONTAINER --*/
 .navContainer {
     background-color: rgba(38, 28, 36, 0.7);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(30px);
     border-radius: 15px;
     display: inline-flex;
     margin-bottom: 70px;
     margin-left: 35px;
-    margin-right: 35px;
     transform: translateY(35px);
-
 }
 
 /*-- LOGO --*/
@@ -182,7 +180,7 @@ a {
 }
 
 .dropColor:hover {
-    background-color: #2C2029;
+    background-color: #41323d;
 }
 
 .dropdown:hover .dropContainer,
@@ -198,11 +196,21 @@ a {
 
 .navImages {
     height: 39px;
-    padding-right: 10px;
+    padding-right: 20px;
 }
 
 .testlol {
     display: flex;
+}
+
+.sectionSoon {
+    background-color: #8E4DC1;
+    color: #ffffff;
+    padding: 5px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
 }
 
 /*-- MENU MOBILE--*/
@@ -1224,3 +1232,44 @@ h4 {
     -webkit-transform: translateY(398%);
     -ms-transform: translateY(398%);
   }
+
+
+
+  /*-- GRIMOIRE T(EMPORAIRE) --*/
+  .grimoireContainer {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    margin-top: 70px;
+    margin-bottom: 90px;
+}
+
+.grimoireFirst_text {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    line-height: 50px;
+}
+
+.grimoireText {
+    color: white;
+    width: 900px;
+    font-size: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    line-height: 160%;
+}
+
+#grimoireError {
+    text-align: center;
+}
+
+.grimoireUboux_img {
+    height: 350px;
+}
