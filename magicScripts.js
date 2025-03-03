@@ -255,49 +255,56 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-/*----------------------------------*/
+/* -- NAVIGATION DROPDOWN ANIMATION -- */
+let dropdownTimeout;
 
 function showDropdown() {
-    clearTimeout(dropdownTimeout); // Annule tout délai de disparition
+    clearTimeout(dropdownTimeout);
     const dropContainer = document.querySelector('.dropContainer');
-    dropContainer.style.display = 'block'; // Affiche le menu
-    setTimeout(() => {
-        dropContainer.style.opacity = '1'; // Commence la transition d'opacité
-        dropContainer.style.visibility = 'visible'; // Assure la visibilité
-    }, 10); // Petit délai pour permettre l'affichage initial avant la transition
+    const dropBtn = document.querySelector('.dropbtn');
+    const navCat = document.querySelector('.navCat.dropdown');
+
+    dropContainer.style.opacity = '1';
+    dropContainer.style.visibility = 'visible';
+    dropContainer.style.transform = 'translateX(-50%) translateY(0)';
+    dropContainer.style.pointerEvents = 'auto';
+    
+    navCat.classList.add('active');
 }
 
 function hideDropdown() {
-    const dropContainer = document.querySelector('.dropContainer');
-    dropContainer.style.opacity = '0'; // Commence la transition de disparition
-    dropContainer.style.visibility = 'hidden'; // Cache le menu après la transition
     dropdownTimeout = setTimeout(() => {
-        dropContainer.style.display = 'none'; // Cache l'élément après la transition
-    }, 300); // Durée de la transition
-};
+        const dropContainer = document.querySelector('.dropContainer');
+        const dropBtn = document.querySelector('.dropbtn');
+        const navCat = document.querySelector('.navCat.dropdown');
 
+        dropContainer.style.opacity = '0';
+        dropContainer.style.transform = 'translateX(-50%) translateY(-10px)';
+        dropContainer.style.visibility = 'hidden';
+        dropContainer.style.pointerEvents = 'none';
 
+        navCat.classList.remove('active');
+    }, 100);
+}
 
-
-
+/* -- CHARGEMENT NAVIGATION | FOOTER --*/
 document.addEventListener("DOMContentLoaded", function () {
     let navigation = document.getElementById('navigation');
     let footer = document.getElementById('footer');
 
-    // Chargement de la navigation
+    // Navigation | Chargement
     if (navigation) {
         fetch('nav.html')
             .then(response => response.ok ? response.text() : Promise.reject(response.status))
             .then(data => navigation.innerHTML = data)
-            .catch(error => console.error("❌ Erreur chargement nav:", error));
+            .catch(error => console.error("❌ Erreur de chargement de la Navigation:", error));
     }
 
-    // Chargement du footer
+    // Footer | Chargement
     if (footer) {
         fetch('footer.html')
             .then(response => response.ok ? response.text() : Promise.reject(response.status))
             .then(data => footer.innerHTML = data)
-            .catch(error => console.error("❌ Erreur chargement footer:", error));
+            .catch(error => console.error("❌ Erreur de chargement du Footer:", error));
     }
 });
-
