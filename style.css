@@ -316,6 +316,9 @@ svg {
     width: 100%;
 }
 
+.customShape {
+    margin-top: -50px;
+}
 /*-- CONTENU --*/
 .mainContainer {
     background-color: #F3F3F3;
@@ -684,6 +687,12 @@ transform: translateY(-20%);
     color: white;
 }
 
+.cookies-popup {
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
+}
+
+
 /*-- Erreur 404 --*/
 .errorContainer {
     display: flex;
@@ -760,6 +769,8 @@ span {
 .hidden {
     opacity: 0; /* Opacité à zéro pour masquer la barre */
 }
+
+
 
 
 
@@ -1246,6 +1257,8 @@ h4 {
     -webkit-transform: translateY(398%);
     -ms-transform: translateY(398%);
   }
+
+  
 
 
 

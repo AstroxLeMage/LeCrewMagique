@@ -1,168 +1,173 @@
-/*-- MAGIC SCROLL --*/
+/*-- SCROLL ANIMATION | MAGIC SCROLL --*/
 const magicElements = document.querySelectorAll('.magicScroll');
 
-function playAnimation() {
-    magicElements.forEach(magicElement => {
-        magicElement.classList.add('active');
-    });
-}
-
-// Vérifie la largeur de l'écran au chargement initial
-if (window.innerWidth < 1024) { // Si c'est une tablette ou un mobile
-    playAnimation(); // Joue l'animation directement
-} else { // Pour les écrans plus larges (desktop)
-    // Ajoute un écouteur d'événement au défilement de la fenêtre
-    window.addEventListener('scroll', () => {
-        const { scrollTop, clientHeight } = document.documentElement;
-    
-        magicElements.forEach(magicElement => {
-            const topElementToTopViewport = magicElement.getBoundingClientRect().top;
-    
-            // Vérifie si le défilement dépasse la position de l'élément moins une portion de la hauteur visible
-            if (scrollTop > scrollTop + topElementToTopViewport - clientHeight * 0.9) {
-                // Ajoute la classe 'active' à l'élément si la condition est remplie
-                magicElement.classList.add('active');
+if (window.innerWidth < 1024) {
+    magicElements.forEach(el => el.classList.add('active'));
+} else {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
             }
         });
-    });
-  }
+    }, { threshold: 0.1 });
 
+    magicElements.forEach(el => observer.observe(el));
+};
 
-  /*-- TWITCH PLAYER --*/
-  let twitchPlayer = null;
+/*-- TWITCH PLAYER --*/
+let twitchPlayer = null;
+
 function loadTwitchPlayer() {
-    if (twitchPlayer === null) {
+    const embedElement = document.getElementById("twitch-embed");
+    
+    if (!embedElement) {
+        console.warn("⚠️ Impossible de charger Twitch : #twitch-embed introuvable.");
+        return;
+    }
+
+    if (!twitchPlayer) {
         twitchPlayer = new Twitch.Player("twitch-embed", {
             channel: "Astroxlemage",
             width: "100%",
             height: "100%",
             layout: "video",
         });
+
+        twitchPlayer.addEventListener(Twitch.Player.READY, handleResize);
     }
 }
 
 function handleResize() {
     const container = document.getElementById("twitch-container");
-    const containerWidth = container.clientWidth; // Largeur du conteneur
-    const containerHeight = container.clientHeight; // Hauteur du conteneur
+    if (!container || !twitchPlayer) return;
 
-    // Calculer la nouvelle hauteur en fonction du rapport d'aspect 16:9
+    const containerWidth = container.clientWidth;
+    const containerHeight = container.clientHeight;
     const newHeight = containerWidth * (9 / 16);
 
-    // Mettre à jour les dimensions du lecteur Twitch en utilisant la taille du conteneur
+
     twitchPlayer.setWidth(containerWidth);
     twitchPlayer.setHeight(newHeight);
 
-    // Ajuster la position du lecteur pour rester centré verticalement dans le conteneur
     const embedElement = document.getElementById("twitch-embed");
-    embedElement.style.top = `${(containerHeight - newHeight) / 2}px`;
+    if (embedElement) {
+        embedElement.style.position = "absolute";
+        embedElement.style.top = `${(containerHeight - newHeight) / 2}px`;
+    }
 }
 
-// Charger le lecteur Twitch lorsque le document est prêt
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     loadTwitchPlayer();
 
-    // Gérer les événements de redimensionnement de la fenêtre
-    window.addEventListener("resize", handleResize);
+    let resizeTimeout;
+    window.addEventListener("resize", () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => requestAnimationFrame(handleResize), 100);
+    });
 
-    // Appeler handleResize une première fois pour initialiser les dimensions
     handleResize();
 });
 
+/*-- COOKIES | MAGIC COOKIES --*/
+document.addEventListener("DOMContentLoaded", function () {
+    const userChoice = getCookie("userChoice");
+    const expiration = parseInt(getCookie("expiration"), 10) || 0;
+    const cookiesContainer = document.getElementById("cookiesContainer");
 
-/*-- MAGIC COOKIES --*/
-// Attend que le DOM soit chargé
-document.addEventListener("DOMContentLoaded", function() {
-    // Récupère le choix de l'utilisateur depuis les cookies
-    var userChoice = getCookie("userChoice");
-    var expiration = getCookie("expiration");
-    var cookiesContainer = document.getElementById('cookiesContainer');
-    // Vérifie si l'utilisateur a déjà pris une décision et si la période d'expiration n'est pas passée
-    if ((userChoice === "accepted" || userChoice === "declined") && new Date().getTime() < expiration) {
-        hideCookiesPopup(); // Cache le popup si les conditions sont remplies
+    if (!cookiesContainer) {
+        console.warn("⚠️ cookiesContainer introuvable dans le DOM.");
+        return;
+    }
+
+    if ((userChoice === "accepted" || userChoice === "declined") && Date.now() < expiration) {
+        hideCookiesPopup();
     } else {
-        // Affiche le popup de cookies si aucune décision n'a été prise ou si la période d'expiration est dépassée
-        var cookiesPopupHTML = `
-            <div id="magicCookies">
+        cookiesContainer.innerHTML = `
+            <div id="magicCookies" class="cookies-popup">
                 <div class="cookies_left">
                     <h3>Cookies</h3>
                     <p class="cookiesText">Des cookies magiques parsèment le site pour personnaliser ton expérience. Avant de poursuivre ta balade, tu peux accepter ou refuser cette touche de magie.</p>
                     <p class="cookiesText">Que l'aventure commence !</p>
-                    <button class="btn_cookies">Accepter</button>
-                    <button class="btn_cookies reject">Non merci !</button>
+                    <button id="acceptCookies" class="btn_cookies">Accepter</button>
+                    <button id="rejectCookies" class="btn_cookies reject">Non merci !</button>
                 </div>
                 <div class="cookiesRight"></div>
             </div>
         `;
-        cookiesContainer.innerHTML = cookiesPopupHTML; // Affiche le contenu du popup dans l'élément 'cookiesContainer'
+
+        document.getElementById("acceptCookies").addEventListener("click", function () {
+            setCookieChoice("accepted");
+            hideCookiesPopup();
+        });
+
+        document.getElementById("rejectCookies").addEventListener("click", function () {
+            setCookieChoice("declined");
+            hideCookiesPopup();
+        });
     }
-    // Sélectionne les boutons d'acceptation et de refus
-    var acceptBtn = document.querySelector('.btn_cookies');
-    var rejectBtn = document.querySelector('.btn_cookies.reject');
-    // Écouteur d'événement pour le bouton d'acceptation
-    acceptBtn.addEventListener('click', function() {
-        setCookieChoice("accepted"); // Enregistre le choix de l'utilisateur comme "accepté"
-        hideCookiesPopup(); // Cache le popup
-    });
-    // Écouteur d'événement pour le bouton de refus
-    rejectBtn.addEventListener('click', function() {
-        setCookieChoice("declined"); // Enregistre le choix de l'utilisateur comme "refusé"
-        hideCookiesPopup(); // Cache le popup
-    });
 });
-// Fonction pour définir le choix de l'utilisateur dans les cookies
+
 function setCookieChoice(choice) {
-    var expirationDate = new Date(); // Date d'expiration
-    expirationDate.setDate(expirationDate.getDate() + 30); // 30 Jours
+    const expirationDate = new Date();
+    expirationDate.setDate(expirationDate.getDate() + 30);
+    const expires = expirationDate.toUTCString();
+
     if (choice === "accepted" || choice === "declined") {
-        // Crée un cookie pour enregistrer le choix de l'utilisateur avec une durée de vie de 30 jours
-        document.cookie = `userChoice=${choice}; expires=${expirationDate.toUTCString()}; path=/`;
-        setExpiration(expirationDate.getTime());
-    }
-}
-// Fonction pour définir la date d'expiration des cookies
-function setExpiration(expirationTime) {
-    var expirationDate = new Date(expirationTime);
-    // Crée un cookie pour enregistrer la date d'expiration des cookies
-    document.cookie = `expiration=${expirationDate.getTime()}; expires=${expirationDate.toUTCString()}; path=/`;
-}
-// Fonction pour récupérer la valeur d'un cookie
-function getCookie(name) {
-    var cookies = document.cookie.split(';');
-    for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i].trim();
-        if (cookie.startsWith(name + '=')) {
-            return cookie.substring(name.length + 1);
-        }
-    }
-    return '';
-}
-// Fonction pour cacher le popup de cookies
-function hideCookiesPopup() {
-    var magicCookies = document.getElementById('magicCookies');
-    if (magicCookies) {
-        magicCookies.style.display = "none";
+        document.cookie = `userChoice=${choice}; expires=${expires}; path=/; Secure; SameSite=Lax`;
+        document.cookie = `expiration=${expirationDate.getTime()}; expires=${expires}; path=/; Secure; SameSite=Lax`;
     }
 }
 
-/*-- MAGIC PROGRESS --*/
+function getCookie(name) {
+    const cookies = document.cookie.split("; ");
+    for (const cookie of cookies) {
+        const [key, value] = cookie.split("=");
+        if (key === name) return decodeURIComponent(value);
+    }
+    return "";
+}
+
+function hideCookiesPopup() {
+    const magicCookies = document.getElementById("magicCookies");
+    if (magicCookies) {
+        magicCookies.style.opacity = "0";
+        setTimeout(() => magicCookies.remove(), 300);
+    }
+}
+
+/*-- BARRE DE PROGRESSION | MAGIC PROGRESS --*/
+let ticking = false;
+
 window.addEventListener('scroll', () => {
+    if (!ticking) {
+        requestAnimationFrame(() => {
+            updateProgressBar();
+            ticking = false;
+        });
+        ticking = true;
+    }
+});
+
+function updateProgressBar() {
     const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrolled = window.scrollY;
     const progress = document.getElementById('progress');
     const progressBar = document.getElementById('progressBar');
+
+    if (!progress || !progressBar) return;
+
     const progressBarWidth = (scrolled / scrollableHeight) * 100;
     progress.style.width = progressBarWidth + '%';
-    // Vérifie si l'utilisateur est arrivé en bas de la page
+
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        progressBar.classList.add('hidden'); // Ajouter la classe pour masquer la barre
+        progressBar.classList.add('hidden');
     } else {
-        progressBar.classList.remove('hidden'); // Retirer la classe pour afficher la barre
+        progressBar.classList.remove('hidden');
     }
-});
+}
 
-
-/*-- MAGIC FAQ --*/
+/*-- FOIRE AUX QUESTIONS | FAQ --*/
 $(document).ready(function() {
     var $open = $(".open");
     var $topic = $(".faqTopic_container");
@@ -170,72 +175,75 @@ $(document).ready(function() {
     var $liveSearchBox = $('.faqSearch');
     var $noResultsMessage = $('.no-results-message');
     var $question = $('.question');
+
     $open.click(function() {
-      var $container = $(this).parents(".faqTopic_container");
-      var $currentAnswer = $container.find(".answer");
-      $answer.not($currentAnswer).slideUp(200);
-      $currentAnswer.slideToggle(200);
-      $topic.not($container).removeClass("expanded");
-      $topic.css("background-color", ""); // Réinitialise la couleur de fond pour tous les sujets
-      $topic.find('.question').css("color", ""); // Réinitialise la couleur du texte pour toutes les questions
-      $answer.css("color", ""); // Réinitialise la couleur du texte pour toutes les réponses
-      if (!$container.hasClass("expanded")) {
+        var $container = $(this).closest(".faqTopic_container");
+        var $currentAnswer = $container.find(".answer");
+
+        $answer.not($currentAnswer).slideUp(200);
+        $topic.not($container).removeClass("expanded").css("background-color", "").find('.question, .answer').css("color", "");
+
+        $currentAnswer.slideToggle(200);
         $container.toggleClass("expanded");
-        $container.css("background-color", "#8172DA"); // Change la couleur de fond pour le sujet ouvert
-        $container.find('.question').css("color", "#ffffff"); // Change la couleur du texte pour les questions ouvertes
-        $container.find('.answer').css("color", "#ffffff"); // Change la couleur du texte pour les réponses ouvertes
-      } else {
-        $container.removeClass("expanded");
-      }
+
+        if ($container.hasClass("expanded")) {
+            $container.css("background-color", "#8172DA").find('.question, .answer').css("color", "#ffffff");
+        } else {
+            $container.css("background-color", "").find('.question, .answer').css("color", "");
+        }
     });
+
     $question.each(function() {
-      $(this).attr('data-search-term', $(this).text().toLowerCase() + $(this).find("faqTag").text().toLowerCase());
+        var tags = $(this).find(".faqTag").text().toLowerCase();
+        $(this).attr('data-search-term', ($(this).text().toLowerCase() + " " + tags).trim());
     });
+
     $liveSearchBox.on('keyup', function() {
-      var searchTerm = $(this).val().trim().toLowerCase();
-      var anyResults = false;
-      if (searchTerm === '') {
-        $topic.show(); // Affiche toutes les questions si la recherche est vide
-        anyResults = true; // Marque qu'il y a des résultats
-      } else {
-        $question.each(function() {
-          var $parent = $(this).parent().parent();
-          var containsTerm = $(this).filter('[data-search-term *= ' + searchTerm + ']').length > 0;
-          if (containsTerm) {
-            $parent.show(); // Affiche les questions correspondantes
-            anyResults = true; // Marque qu'il y a des résultats
-          } else {
-            $parent.hide(); // Cache les questions non correspondantes
-          }
-        });
-      }
-      $noResultsMessage.toggle(!anyResults);
+        var searchTerm = $(this).val().trim().toLowerCase();
+        var anyResults = false;
+
+        if (searchTerm === '') {
+            $topic.show(); 
+            anyResults = true;
+        } else {
+            $question.each(function() {
+                var $parent = $(this).closest('.faqTopic_container');
+                var term = $(this).attr('data-search-term');
+
+                if (term.includes(searchTerm)) {
+                    $parent.show();
+                    anyResults = true;
+                } else {
+                    $parent.hide();
+                }
+            });
+        }
+
+        $noResultsMessage.toggle(!anyResults);
     });
-      // Efface le champ de recherche au chargement de la page
-    $('.faqSearch').val('');
-  });
-  
+
+    $liveSearchBox.val('');
+});
+
 /*-- MAGIC BADGES | HF --*/
 document.addEventListener("DOMContentLoaded", function () {
-    /* Fonction pour afficher le popover lorsque la souris survole l'image des badges */
+    
     function showPopover(event) {
         var popover = document.getElementById("popover");
-        if (!popover) return; // Sécurité si l'élément n'existe pas
+        if (!popover) return;
         
         popover.style.opacity = "1";
         popover.style.transition = "opacity 0.4s ease";
     }
 
-    /* Fonction pour masquer le popover */
     function hidePopover() {
         var popover = document.getElementById("popover");
-        if (!popover) return; // Sécurité si l'élément n'existe pas
+        if (!popover) return;
 
         popover.style.opacity = "0";
         popover.style.transition = "opacity 0.3s ease";
     }
 
-    // Vérifie que l'élément badges_img existe avant d'ajouter les événements
     var badgesImg = document.querySelector(".badges_img");
     if (badgesImg) {
         badgesImg.addEventListener("mouseover", showPopover);
@@ -243,17 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         console.warn("⚠️ L'élément .badges_img n'a pas été trouvé dans le DOM.");
     }
-
-    /* -- NAVIGATION | BURGER -- */
-    function openNav() {
-        document.getElementById("myNav").style.width = "100%";
-    }
-    
-    function closeNav() {
-        document.getElementById("myNav").style.width = "0%";
-    }
 });
-
 
 /* -- NAVIGATION DROPDOWN ANIMATION -- */
 let dropdownTimeout;
