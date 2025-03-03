@@ -125,7 +125,11 @@ a {
   'opsz' 16
 }
 
-/* Styles pour le bouton dropdown */
+/* NAVIGATION | DROPDOWN*/
+.navCat.dropdown {
+    position: relative;
+}
+
 .dropbtn {
     background-color: transparent;
     margin: 0;
@@ -137,15 +141,16 @@ a {
     cursor: pointer;
 }
 
-/* Styles pour le dropdown */
 .dropContainer {
     display: none;
     position: absolute;
     background-color: #1E181D;
     border-radius: 10px;
-    right: 55px;
-    top: 90px;
-    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 75px;
+    min-width: max-content; 
+    max-width: 90vw; 
     transition: 0.5s ease-in-out;
 }
 
@@ -159,7 +164,6 @@ a {
     left: 50%;
 }
 
-/* Style des liens dans le dropdown */
 .dropContainer a {
     color: white;
     text-decoration: none;
@@ -197,10 +201,6 @@ a {
 .navImages {
     height: 39px;
     padding-right: 20px;
-}
-
-.testlol {
-    display: flex;
 }
 
 .sectionSoon {

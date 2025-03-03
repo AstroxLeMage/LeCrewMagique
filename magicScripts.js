@@ -216,43 +216,43 @@ $(document).ready(function() {
   });
   
 /*-- MAGIC BADGES | HF --*/
-/* Fonction pour afficher le popover lorsque la souris survole l'image des badges */
-function showPopover(event) {
-  // Récupère l'élément du popover et l'image des badges
-  var popover = document.getElementById("popover");
-  var badgesImg = document.querySelector(".badges_img");
-  // Vérifie si la souris est actuellement sur l'image "badges_img"
-  if (event.target === badgesImg) {
-      // Affiche le popover avec une transition de 0.4 secondes
-      popover.style.opacity = "1";
-      popover.style.transition = "opacity 0.4s ease";
-  }
-}
-/* Fonction pour masquer le popover */
-function hidePopover() {
-  // Récupère l'élément du popover
-  var popover = document.getElementById("popover");
-  // Masque le popover avec une transition de 0.3 secondes
-  popover.style.opacity = "0";
-  popover.style.transition = "opacity 0.3s ease";
-}
-// Récupère l'élément de l'image des badges
-var badgesImg = document.querySelector(".badges_img");
-// Ajoute des écouteurs d'événements pour le survol et la sortie de la souris
-badgesImg.addEventListener("mouseover", showPopover);
-badgesImg.addEventListener("mouseout", hidePopover);
+document.addEventListener("DOMContentLoaded", function () {
+    /* Fonction pour afficher le popover lorsque la souris survole l'image des badges */
+    function showPopover(event) {
+        var popover = document.getElementById("popover");
+        if (!popover) return; // Sécurité si l'élément n'existe pas
+        
+        popover.style.opacity = "1";
+        popover.style.transition = "opacity 0.4s ease";
+    }
 
+    /* Fonction pour masquer le popover */
+    function hidePopover() {
+        var popover = document.getElementById("popover");
+        if (!popover) return; // Sécurité si l'élément n'existe pas
 
-/* -- NAVIGATION | BURGER --*/
-function openNav() {
-  document.getElementById("myNav").style.width = "100%";
-}
-            
-function closeNav() {
-  document.getElementById("myNav").style.width = "0%";
-}
+        popover.style.opacity = "0";
+        popover.style.transition = "opacity 0.3s ease";
+    }
 
+    // Vérifie que l'élément badges_img existe avant d'ajouter les événements
+    var badgesImg = document.querySelector(".badges_img");
+    if (badgesImg) {
+        badgesImg.addEventListener("mouseover", showPopover);
+        badgesImg.addEventListener("mouseout", hidePopover);
+    } else {
+        console.warn("⚠️ L'élément .badges_img n'a pas été trouvé dans le DOM.");
+    }
 
+    /* -- NAVIGATION | BURGER -- */
+    function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+    }
+    
+    function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+    }
+});
 
 
 /*----------------------------------*/
@@ -274,4 +274,30 @@ function hideDropdown() {
     dropdownTimeout = setTimeout(() => {
         dropContainer.style.display = 'none'; // Cache l'élément après la transition
     }, 300); // Durée de la transition
-}
+};
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    let navigation = document.getElementById('navigation');
+    let footer = document.getElementById('footer');
+
+    // Chargement de la navigation
+    if (navigation) {
+        fetch('nav.html')
+            .then(response => response.ok ? response.text() : Promise.reject(response.status))
+            .then(data => navigation.innerHTML = data)
+            .catch(error => console.error("❌ Erreur chargement nav:", error));
+    }
+
+    // Chargement du footer
+    if (footer) {
+        fetch('footer.html')
+            .then(response => response.ok ? response.text() : Promise.reject(response.status))
+            .then(data => footer.innerHTML = data)
+            .catch(error => console.error("❌ Erreur chargement footer:", error));
+    }
+});
+
