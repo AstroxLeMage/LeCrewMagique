@@ -297,7 +297,7 @@ a {
 
 /*-- TEXT HEADER ✅ --*/
 .textHeader { /* Une quête épique... */
-    margin: 0px 0 150px;
+    margin: 0px 0 200px;
     text-align: center;
 }
 
@@ -317,7 +317,7 @@ svg {
 }
 
 .customShape {
-    margin-top: -50px;
+    margin-top: -70px;
 }
 /*-- CONTENU --*/
 .mainContainer {
@@ -333,17 +333,11 @@ svg {
 #twitch-embed {
     width: 750px; /* Largeur maximale du conteneur */
     height: 420px; /* Hauteur maximale du conteneur */
-    margin-top: -125px;
+    margin-top: -100px;
     border-radius: 16px;
     overflow: hidden; /* Masque le dépassement à l'intérieur du lecteur */
     min-height: 300px; /* Ajuste selon tes besoins */
 }
-
-.po {
-    margin-top: 20px;
-}
-
-
 
 /* -- BOUTONS -- */
 button { /* ✅ */
