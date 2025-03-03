@@ -287,16 +287,7 @@ function hideDropdown() {
 
 /* -- CHARGEMENT NAVIGATION | FOOTER --*/
 document.addEventListener("DOMContentLoaded", function () {
-    let navigation = document.getElementById('navigation');
     let footer = document.getElementById('footer');
-
-    // Navigation | Chargement
-    if (navigation) {
-        fetch('nav.html')
-            .then(response => response.ok ? response.text() : Promise.reject(response.status))
-            .then(data => navigation.innerHTML = data)
-            .catch(error => console.error("❌ Erreur de chargement de la Navigation:", error));
-    }
 
     // Footer | Chargement
     if (footer) {
@@ -306,3 +297,4 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(error => console.error("❌ Erreur de chargement du Footer:", error));
     }
 });
+

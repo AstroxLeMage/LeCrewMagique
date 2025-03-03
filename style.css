@@ -336,11 +336,13 @@ svg {
     margin-top: -125px;
     border-radius: 16px;
     overflow: hidden; /* Masque le dépassement à l'intérieur du lecteur */
+    min-height: 300px; /* Ajuste selon tes besoins */
 }
 
 .po {
     margin-top: 20px;
 }
+
 
 
 /* -- BOUTONS -- */
@@ -1299,4 +1301,24 @@ h4 {
 
 .grimoireUboux_img {
     height: 350px;
+}
+
+
+
+/* Masque la navigation avant le chargement */
+#navigation {
+    display: none; /* Masque la navigation jusqu'à ce qu'elle soit prête */
+}
+
+/* Une fois chargée, affiche la navigation */
+#navigation.loaded {
+    display: block;
+    position: fixed; /* Fixe la navigation en haut de la page */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(38, 28, 36, 0.7);
+    backdrop-filter: blur(30px);
+    padding: 20px 0;
+    z-index: 1000; /* Toujours au-dessus des autres éléments */
 }
