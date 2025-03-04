@@ -1,5 +1,4 @@
 /* Ce site est réalisé lors de mes périodes d'insomnie */
-/* Optimisation et nettoyage en cours ! */
 
 body {
     margin:0;
@@ -23,8 +22,7 @@ h1 {
     text-align: center;
     font-family: 'Luckiest Guy', cursive;
     letter-spacing: 2px;
-    margin: 0px;
-    margin-top: 0;
+    margin: 0;
     text-transform: uppercase;
 }
 
@@ -45,7 +43,6 @@ h2 {
     padding-right: 5px;
 }
 
-
 /*-- HEADER --*/
 .canvas {
     height: 450px;
@@ -55,7 +52,6 @@ h2 {
     background-position: center;
     background-size: cover;
 }
-
 
 /*-- NAVIGATION CONTAINER --*/
 .navContainer {
@@ -94,7 +90,6 @@ h2 {
     align-items: center;
     margin: 0;
 }
-
 
 .navCat {
     padding-right: 30px;
@@ -146,16 +141,15 @@ a {
     background-color: #1E181D;
     border-radius: 10px;
     left: 50%;
-    transform: translateX(-50%) translateY(-10px); /* Départ légèrement au-dessus */
+    transform: translateX(-50%) translateY(-10px);
     top: 75px;
     min-width: max-content;
     max-width: 90vw;
     opacity: 0;
     visibility: hidden;
-    pointer-events: none; /* Évite les clics quand invisible */
+    pointer-events: none;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
 
 .dropdown-arrow {
     position: absolute;
@@ -216,7 +210,6 @@ a {
     font-weight: 600;
 }
 
-/* 🔥 Force le hover de .navCat quand le dropdown est ouvert */
 .navCat:hover,
 .navCat.active {
     background-color: #41323d;
@@ -226,77 +219,8 @@ a {
     cursor: pointer;
 }
 
-
-/*-- MENU MOBILE--*/
-.burger {
-    font-size:40px;
-    cursor:pointer;
-    float: right;
-    position: absolute;
-    right: 30px;
-}
-
-.overlay {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    overflow-x: hidden;
-    background-color: #261C24;
-    transition: 0.2s;
-  }
-  
-  .overlay-content {
-    position: relative;
-    top: 25%;
-    width: 100%;
-    text-align: center;
-    margin-top: 30px;
-    
-  }
-  
-  .overlay a {
-    padding: 8px;
-    padding-bottom: 25px;
-    text-decoration: none;
-    font-size: 26px;
-    color: #ffffff;
-    display: block;
-    transition: 0.3s;
-  }
-  
-  .overlay a:hover, .overlay a:focus {
-    color: #f1f1f1;
-  }
-  
-  .overlay .closebtn {
-    position: absolute;
-    top: 20px;
-    right: 45px;
-    font-size: 60px;
-  }
-
-.lol {
-    margin-top: 125px;
-
-  }
-  
-  /* -- BURGER --*/
-  @media screen and (max-height: 450px) {
-    .overlay a {font-size: 20px}
-    .overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
-    }
-  }
-
-
-
-/*-- TEXT HEADER ✅ --*/
-.textHeader { /* Une quête épique... */
+/*-- TEXT HEADER | CODEX - SOUVENIRS - GRIMOIRE --*/
+.textHeader { 
     margin: 0px 0 200px;
     text-align: center;
 }
@@ -312,13 +236,15 @@ svg {
     width: 100%;
 }
 
+.customShape {
+    margin-top: -70px;
+}
+
 .shapeCircle {
     width: 100%;
 }
 
-.customShape {
-    margin-top: -70px;
-}
+
 /*-- CONTENU --*/
 .mainContainer {
     background-color: #F3F3F3;
@@ -336,7 +262,7 @@ svg {
     margin-top: -100px;
     border-radius: 16px;
     overflow: hidden; /* Masque le dépassement à l'intérieur du lecteur */
-    min-height: 300px; /* Ajuste selon tes besoins */
+ 
 }
 
 /* -- BOUTONS -- */

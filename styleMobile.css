@@ -7,7 +7,6 @@ h1 {
     font-size: 40px;
     letter-spacing: 0px;
     line-height: 45px;
-    margin-top: 70px;
 }
 
 h2 {
@@ -16,8 +15,34 @@ h2 {
    width: auto; 
 }
 
+
+/*-- NEWS BANNER --*/
+.newsHeader {
+   display: none;
+}
+
+/* --- NAVIGATION --*/
+.navContainer {
+    background-color: #261C24;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    transform: translateY(0px);
+    width: 100%;
+    margin-bottom: 65px;
+}
+
 .logo {
-    margin-left: 15px;
+   padding-left: 15px;
+   padding-right: 15px;
+   margin-right: 0;
+    width: 55px;
+    height: 46px;
+}
+
+.logo:hover {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
 }
 
 .canvas {
@@ -75,9 +100,8 @@ h2 {
 
 
 #twitch-embed {
-    width: 370px; /* Largeur maximale du conteneur */
-    height: 208px; /* Hauteur maximale du conteneur */
-    margin-top: -60px;
+    width: 550px; /* Largeur maximale du conteneur */
+    height: 320px; /* Hauteur maximale du conteneur */
 }
 
 
@@ -88,12 +112,21 @@ h2 {
 }
 
 #weekContainer {
-        overflow-x: auto; /* Ajoute un overflow horizontal */
+    overflow-x: auto; /* Ajoute un overflow horizontal */
     white-space: nowrap; /* Empêche les éléments de se plier à la ligne suivante */
     padding-bottom: 10px; /* Espace pour le défilement si besoin */
+    width: auto;
 }
 
   }
+
+
+
+
+
+
+
+
 /*-- TABLETTE  // MEDIUM --*/ 
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
     .burger {
