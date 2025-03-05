@@ -1,4 +1,49 @@
-/* Ce site est réalisé lors de mes périodes d'insomnie */
+/* 
+Que fais-tu ici, voyageur(euse) ?
+
+Peu osent scruter l’ombre où sommeillent les vérités interdites…
+Tu as vu ce que d’autres ignorent.
+
+-----------
+
+Dans un âge oublié,
+lorsque les ténèbres menaçaient d’engloutir jusqu’au dernier éclat d’espoir,
+une créature aux écailles d’améthyste offrit son souffle, une flamme éternelle.
+
+Née de son feu ancien, elle devint la source d’un pouvoir rare,
+un secret jalousement gardé.
+
+C’est en puisant dans cette essence que le Crew Magique trouva sa force,
+bâtissant un sanctuaire à l’abri des regards,
+où le savoir et la puissance se transmettent à ceux capables d’en percer les mystères.
+
+Mais tout savoir a son prix,
+et tout pouvoir doit être protégé.
+
+Les Gardiens du Savoir veillent dans l’ombre.
+Leur mission est ancienne, et leur vigilance ne faiblit jamais.
+Ils portent les couleurs du secret qu’ils défendent,
+un éclat rare, teinté des braises du passé.
+
+Car si l’histoire parle d’une créature aux flammes immortelles,
+son nom, lui, a été perdu avec le temps…
+Seuls les Gardiens connaissent la vérité.
+E les plus perspicaces peuvent encore en retrouver la trace.
+
+Des rumeurs murmurent, là où les voix s’unissent,
+Dans un sanctuaire secret, où les esprits s’entrelacent.
+Un repaire où son souvenir persiste encore…
+
+On raconte aussi qu’un Codex ancien renferme les traces de cette histoire oubliée,
+un recueil de connaissances où seul(e)s les esprits curieux peuvent espérer trouver des réponses.
+
+Ceux qui osent l’interroger doivent se souvenir du nom de celui qui, jadis, offrit sa flamme.
+Un nom lié à des joyaux disparus, à des cendres consumées,
+et à un instinct brûlant qui fit danser les ombres et le feu.
+
+Si tu es digne, si tu comprends le lien entre les flammes et le savoir,
+cherche là où l’on interroge l’oublié… 
+*/
 
 body {
     margin:0;
@@ -261,53 +306,95 @@ svg {
     height: 420px; /* Hauteur maximale du conteneur */
     margin-top: -100px;
     border-radius: 16px;
-    overflow: hidden; /* Masque le dépassement à l'intérieur du lecteur */
+    overflow: hidden;
  
 }
 
 /* -- BOUTONS -- */
-button { /* ✅ */
+button { 
     display: inline-flex;
     align-items: center;
     font-size: 20px;
     color: #ffffff;
     border: none;
-    border-radius: 30px;
+    border-radius: 25px;
     margin-top: 30px;
     margin-bottom: 90px;
-    padding: 20px 40px 20px 40px;
+    padding: 20px 40px;
     cursor: pointer;
-    transition: 0.2s;
+    transition: 0.3s ease;
+    position: relative;
 }
 
-.twitch-btn { /* Bouton Twitch ✅ */
-    background-color: #9146FF;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
-} 
-
-.twitch-btn img, .discord-btn img { /* ✅ */
+button img { 
     width: 20px;
     margin-right: 10px;
 }
 
+.twitch-btn {
+    background-color: #9146FF;
+}
+
 .twitch-btn:hover {
-    background-color:#A162FF;
-    box-shadow: #bdbdbd 0px 6px 15px;
+    background-color: #A162FF;
+    box-shadow: 0px 6px 15px rgba(189, 189, 189, 0.5);
     transform: translateY(-10%);
 }
 
-.discord-btn { /* Bouton Discord ✅ */
+.twitch-btn::after {
+    content: "";
+    position: absolute;
+    bottom: -11px; 
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg); 
+    width: 20px; 
+    height: 20px;
+    background-color: #702fd1; 
+}
+
+.twitch-btn::before {
+    content: "";
+    position: absolute;
+    bottom: -1px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%; 
+    height: 3px; 
+    background-color: #702fd1; 
+    border-radius: 2px;
+}
+
+.discord-btn {
     background-color: #7289DA;
-    float: left;
 }
 
 .discord-btn:hover {
     background-color: #859DF3;
-    box-shadow: #bdbdbd 0px 6px 15px;
-    -webkit-transform: translateY(-10%);
+    box-shadow: 0px 6px 15px rgba(189, 189, 189, 0.5);
     transform: translateY(-10%);
+}
+
+.discord-btn::after {
+    content: "";
+    position: absolute;
+    bottom: -11px; 
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg); 
+    width: 20px;
+    height: 20px;
+    background-color: #5870c5; 
+}
+
+.discord-btn::before {
+    content: "";
+    position: absolute;
+    bottom: -1px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%; 
+    height: 3px; 
+    background-color: #5870c5; 
+    border-radius: 2px;
 }
 
 /* -- SECTION --*/
@@ -1241,4 +1328,14 @@ h4 {
     backdrop-filter: blur(30px);
     padding: 20px 0;
     z-index: 1000; /* Toujours au-dessus des autres éléments */
+}
+
+#resultMessage {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #ffffff;
+    background-color: #2e2e2e;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
 }
