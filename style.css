@@ -28,7 +28,7 @@ un éclat rare, teinté des braises du passé.
 Car si l’histoire parle d’une créature aux flammes immortelles,
 son nom, lui, a été perdu avec le temps…
 Seuls les Gardiens connaissent la vérité.
-E les plus perspicaces peuvent encore en retrouver la trace.
+Seuls les plus perspicaces peuvent encore en retrouver la trace.
 
 Des rumeurs murmurent, là où les voix s’unissent,
 Dans un sanctuaire secret, où les esprits s’entrelacent.
@@ -194,6 +194,7 @@ a {
     visibility: hidden;
     pointer-events: none;
     transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10000;
 }
 
 .dropdown-arrow {
@@ -263,6 +264,7 @@ a {
     transition: 0.2s;
     cursor: pointer;
 }
+
 
 /*-- TEXT HEADER | CODEX - SOUVENIRS - GRIMOIRE --*/
 .textHeader { 
@@ -966,6 +968,9 @@ span {
     margin-top: 90px;
 }
 
+.faq_none { /*--- Correction maargin top des gros titre / a refaire sinon ca bug) --*/
+    margin-top: 0;
+}
 
 .faqSearch {
     width: 80%;
@@ -975,6 +980,7 @@ span {
     border: 1px solid #E8E8E8;
     border-radius: 15px;
     font-size: 16px;
+    position: relative;
 }
 
 .no-results-message {
@@ -1008,18 +1014,18 @@ span {
     width: 100%;
 }
       
-      .answer {
-        font-size: 16px;
-        line-height: 160%;
-        display: none;
-        margin-bottom: 30px;
-        text-align: left;
-        padding-left: 20px;
-        padding-right: 20px;
-      }
+.answer {
+    font-size: 16px;
+    line-height: 160%;
+    display: none;
+    margin-bottom: 30px;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+}
       
       
-      .faq { /* ✅ */
+      .faq { 
         display: flex;
         flex-direction:column;
         width: 1280px;
@@ -1073,7 +1079,6 @@ span {
     flex-direction: column;
 }
 
-
 .table {
     color: #261C21;
     margin-left: auto;
@@ -1086,11 +1091,7 @@ span {
     border-collapse: separate;
     border-spacing: 0px; 
     padding: 10px;
-    margin-bottom: 90px;
-    
 }
-
-
 
 .title_cmd {
     font-size: 25px;
@@ -1122,9 +1123,9 @@ tr:nth-child(even) {
     background-color: #E8E8E8;
 }
 
-
 .box_cmd {
-    border: solid 2px #261C21;
+    border: solid 2px #3a83f8;
+    color: #3a83f8;
     padding: 5px 10px 5px 10px;
     font-weight: 500;
     text-align: center;
@@ -1142,7 +1143,7 @@ tr:nth-child(even) {
     transition: 0.2s;
 }
 
-.modo {
+.cmd_modo {
     border-color: #9a61f8;
     color: #9a61f8;
     transition: 0.2s;
@@ -1158,11 +1159,30 @@ tr:nth-child(even) {
     color: #E67E22; 
 }
 
+.cmd_follow {
+    color: #2ECC71;
+    border-color: #2ECC71;
+}
 
+.cmd_vip {
+
+}
 
 .alias_cmd {
     font-weight: 500;
 }
+
+.pagination {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 90px;
+}
+
+#prevPage, #nextPage, .page-number {
+    margin-right: 10px;
+}
+
 
 
 .header_text {
@@ -1312,30 +1332,210 @@ h4 {
 
 
 
-/* Masque la navigation avant le chargement */
-#navigation {
-    display: none; /* Masque la navigation jusqu'à ce qu'elle soit prête */
+
+/*-- Message secret  TEST--*/
+.spyro-message {
+    position: relative;
+
 }
 
-/* Une fois chargée, affiche la navigation */
-#navigation.loaded {
-    display: block;
-    position: fixed; /* Fixe la navigation en haut de la page */
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(38, 28, 36, 0.7);
-    backdrop-filter: blur(30px);
-    padding: 20px 0;
-    z-index: 1000; /* Toujours au-dessus des autres éléments */
+.dragon_img {
+    height: 150px;
 }
 
-#resultMessage {
-    margin-top: 20px;
-    font-size: 1.2em;
-    color: #ffffff;
-    background-color: #2e2e2e;
-    padding: 10px;
-    border-radius: 5px;
-    display: none;
+.key-btn {
+    background-color: #FAA844;
+    margin-bottom: 0;
 }
+
+.key-btn:hover {
+    background-color: #fcb053;
+    box-shadow: 0px 6px 15px rgba(189, 189, 189, 0.5);
+    transform: translateY(-10%);
+}
+
+.key-btn::after {
+    content: "";
+    position: absolute;
+    bottom: -11px; 
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg); 
+    width: 20px;
+    height: 20px;
+    background-color: #F68A1E; 
+}
+
+.key-btn::before {
+    content: "";
+    position: absolute;
+    bottom: -1px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%; 
+    height: 3px; 
+    background-color: #F68A1E; 
+    border-radius: 2px;
+}
+
+.spyro-message {
+    line-height: 35px;
+}
+
+.avertissement {
+    font-size: 14px;
+}
+
+.copy-message {
+    position: fixed; 
+    bottom: 100px; 
+    left: 20px;
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    z-index: 1000; 
+    height: 200px;
+}
+
+.copy-text {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 10px 20px 10px 20px;
+    font-size: 16px;
+}
+
+.check_merlin {
+    height: 200px;
+}
+
+
+/*-- ?? --*/
+.letter-image {
+    position: fixed;
+    bottom: 1px;
+    left: 2%;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+    color: black;
+  }
+  
+  .animated-mail {
+    position: absolute;
+    height: 150px;
+    width: 200px;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    transition: 0.4s;
+  
+    
+    .body {
+      position: absolute;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0 100px 200px;
+      border-color: transparent transparent #f0d3ab transparent;
+      z-index: 2;
+       border-bottom-right-radius: 10px ;
+       border-bottom-left-radius: 10px;
+    }
+  
+    .top-fold {
+      position: absolute;
+      top: 50px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 50px 100px 0 100px;
+      -webkit-transform-origin: 50% 0%;
+      -webkit-transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+      -moz-transform-origin: 50% 0%;
+      -moz-transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+      transform-origin: 50% 0%;
+      transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+      border-color: #ebc897 transparent transparent transparent;
+      z-index: 2;
+    }
+  
+    .back-fold {
+      position: absolute;
+      bottom: 0;
+      width: 200px;
+      height: 100px;
+      background: #e2c499;
+      z-index: 0;
+      border-bottom-right-radius: 10px ;
+       border-bottom-left-radius: 10px;
+    }
+  
+    .left-fold {
+      position: absolute;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 50px 0 50px 100px;
+      border-color: transparent transparent transparent #f0d3ab;
+      z-index: 2;
+      border-bottom-right-radius: 10px ;
+       border-bottom-left-radius: 10px;
+    }
+  
+    .letter {
+      left: 20px;
+      bottom: 0px;
+      position: absolute;
+      width: 160px;
+      height: 60px;
+      background: #FCE1BB;
+      z-index: 1;
+      overflow: hidden;
+      -webkit-transition: 0.4s 0.2s;
+      -moz-transition: 0.4s 0.2s;
+      transition: 0.4s 0.2s;
+      border-bottom-right-radius: 10px ;
+       border-bottom-left-radius: 10px;
+       text-align: center;
+
+    .letter-title {
+        margin-top: 10px;
+        font-weight: 500;
+        align-items: center;
+
+      }
+      .letter-context {
+        margin-top: 10px;
+        font-size: 12px;
+      }
+    }
+  }
+  
+  .letter-image:hover {
+    .animated-mail {
+      transform: translateY(10px);
+      -webkit-transform: translateY(10px);
+      -moz-transform: translateY(10px);
+      
+    }
+  
+    .animated-mail .top-fold {
+      transition: transform 0.4s, z-index 0.2s;
+      transform: rotateX(180deg);
+      -webkit-transition: transform 0.4s, z-index 0.2s;
+      -webkit-transform: rotateX(180deg);
+      -moz-transition: transform 0.4s, z-index 0.2s;
+      -moz-transform: rotateX(180deg);
+      z-index: 0;
+    }
+  
+    .animated-mail .letter {
+      height: 180px;
+    }
+  
+    .shadow {
+      width: 250px;
+    }
+  }
+  

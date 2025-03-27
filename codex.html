@@ -35,7 +35,7 @@
         </div>
         <!-- HEADER -->
         <header class="canvas_faq">
-            <!-- NAVIGATION -->
+            <!-- NAVIGATION-->
             <nav class="navContainer">
                 <a href="index.html">
                     <img class="logo" src="img/LCM.png" alt="Logo du Crew Magique">
@@ -48,13 +48,23 @@
                         <a href="https://www.twitch.tv/astroxlemage/clips?filter=clips&range=all" target="_blank">Clips</a>
                     </li>
                     <li class="navCat dropdown" onmouseover="showDropdown()" onmouseout="hideDropdown()">                        
-                        <button  onclick="window.location.href='codex.html'; toggleDropdown(event);" class="dropbtn">Codex
+                        <button  toggleDropdown(event); class="dropbtn">Sanctuaire
                             <span class="material-symbols-outlined">keyboard_arrow_down</span>
                         </button>
                         <!-- DROPDOWN -->
                         <div class="dropContainer">
                             <div class="dropdown-arrow"></div>
-                            <ul class="dropLink ">  
+                            <ul class="dropLink ">
+                                <li class="navCat dropColor">
+                                    <a href="codex.html">
+                                        <div class="navIcon">
+                                            <img class="navImages" src="img/codex_icon.png" alt="">
+                                        </div>
+                                        <div class="navInfos">Codex du Savoir
+                                            <p class="navDescription">Besoin d'aide ?</p>
+                                        </div>
+                                    </a>
+                                </li>
                                 <li class="navCat dropColor">
                                     <a href="commandes.html">
                                         <div class="navIcon">
@@ -105,7 +115,7 @@
                             <div class="bannerContainer codexCommandes">
                                 <h2 class="codexPage">Guide des !Commandes</h2>
                                 <p class="codexText">Découvre les différentes commandes que tu peux utiliser dans le tchat pendant le live.</p>
-                                <a class="codexLink" href="commandes.html">
+                                
                                     <p class="codexLink">Accéder aux commandes<span class="material-symbols-outlined">arrow_right_alt</span></p>
                                 </a>
                             </div>
@@ -140,7 +150,8 @@
                         <h2 class="faq_h2">Foire aux questions</h2>
                         <!-- ZONE DE RECHERCHE -->
                         <div class="faqHeader">
-                                <input type="text" class="faqSearch" placeholder="Chercher par mots clés...">                                       
+                                <input type="text" class="faqSearch" placeholder="Chercher par mots clés...">           
+                        
                         </div>
                         <!-- QUESTIONS + REPONSES  -->
                         <div class="faqTopic_container">

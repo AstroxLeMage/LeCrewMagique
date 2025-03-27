@@ -167,7 +167,8 @@ function updateProgressBar() {
     }
 }
 
-/*-- FOIRE AUX QUESTIONS | FAQ --*/
+
+/*-- FOIRE AUX QUESTIONS | FAQ | SECRET --*/
 $(document).ready(function() {
     var $open = $(".open");
     var $topic = $(".faqTopic_container");
@@ -175,6 +176,19 @@ $(document).ready(function() {
     var $liveSearchBox = $('.faqSearch');
     var $noResultsMessage = $('.no-results-message');
     var $question = $('.question');
+
+    // Liste des mots-clés aléatoires pour le ticket magique
+    var motsCles = [
+        "Flamme d'Avalar",
+        "Souffle Ancien",
+        "Éveil Draconique",
+        "Cendres Magiques",
+        "Lumière du Nexus"
+    ];
+
+    function getMotCleAleatoire() {
+        return motsCles[Math.floor(Math.random() * motsCles.length)];
+    }
 
     $open.click(function() {
         var $container = $(this).closest(".faqTopic_container");
@@ -202,8 +216,10 @@ $(document).ready(function() {
         var searchTerm = $(this).val().trim().toLowerCase();
         var anyResults = false;
 
+        // Ajouter une condition pour empêcher la génération d'un mot-clé si l'espace est pressé avant
         if (searchTerm === '') {
-            $topic.show(); 
+            $topic.show();
+            $noResultsMessage.hide();
             anyResults = true;
         } else {
             $question.each(function() {
@@ -219,11 +235,85 @@ $(document).ready(function() {
             });
         }
 
-        $noResultsMessage.toggle(!anyResults);
+        // Gérer le message de Spyro si le bon mot-clé est trouvé
+        if (searchTerm === 'spyro') {
+            var motCleAleatoire = getMotCleAleatoire();
+            $noResultsMessage.html(`
+                <div class="spyro-message">
+                    <img class="dragon_img" src="img/secretEnigme.png" alt="Break">
+                    <p><strong>Félicitations, voyageur(euse) !</strong></p>
+                    <p>En inscrivant mon nom dans le Codex, tu as ravivé l’éclat de ma flamme, et avec elle, la magie du Crew Magique s’est renforcée. Pour avoir percé ce secret, je t’offre l’opportunité de rejoindre les <b>Messager(ère)s de l'Oublié.</b></p><br>
+                    <p>Rends-toi dans le salon <b>Suggestion</b> du Discord, ouvre un <b>Ticket Magique</b> et inscris ce que je te révèle ci-dessous :</p><br>
+                    <p class="avertissement"><em>Avertissement : Ne révèle ni le secret, ni l'accès à l’énigme. Ceux qui brisent ce pacte risquent de perdre leur chemin.</em></p>
+                    <button class="key-btn" data-key="${motCleAleatoire}">${motCleAleatoire}</button>
+                    <div class="copy-message">
+                        <img class="check_merlin" src="img/cookies_illu.png">
+                        <p class="copy-text">Le Mot-clé a bien été copié !</p>
+                    </div>
+                </div>
+            `).show();
+        } else {
+            $noResultsMessage.toggle(!anyResults).text("Je vois que ta curiosité est sans limite, mais cette fois-ci, la réponse reste insaisissable !");
+        }
     });
 
+    // Fonction pour copier le mot-clé en un clic
+    $(document).on("click", ".key-btn", function() {
+        var motCle = $(this).data("key");
+        var $tempInput = $("<input>");
+        $("body").append($tempInput);
+        $tempInput.val(motCle).select();
+        document.execCommand("copy");
+        $tempInput.remove();
+        
+        // Afficher un message de confirmation
+        $(this).siblings(".copy-message").fadeIn(300).delay(2000).fadeOut(300);
+    });
+
+    // Réinitialiser la valeur de la barre de recherche
     $liveSearchBox.val('');
 });
+
+/*---- ------*/
+
+document.addEventListener("DOMContentLoaded", function () {
+    const letter = document.getElementById("letter");
+    const now = new Date();
+    const currentHour = now.getHours();
+    const currentMinute = now.getMinutes();
+    const today = now.toDateString();
+    const lastReadDate = localStorage.getItem("letterReadDate");
+
+    // 🔄 Heures et minutes d'apparition (modifiable)
+    const schedule = [
+        { hour: 11, minute: 48 },  // Affiche à 10h30
+        { hour: 14, minute: 45 },  // Affiche à 14h45
+        { hour: 18, minute: 0 },   // Affiche à 18h00
+        { hour: 22, minute: 15 }   // Affiche à 22h15
+    ];
+
+    // 🔎 Vérifier si la lettre doit apparaître
+    schedule.forEach(time => {
+        if (currentHour === time.hour && currentMinute === time.minute && lastReadDate !== today) {
+            letter.style.display = "block"; // Affiche l'enveloppe
+
+            // 📌 Masquer après lecture (quand la lettre se referme)
+            letter.addEventListener("click", function () {
+                setTimeout(() => {
+                    letter.style.display = "none";
+                    localStorage.setItem("letterReadDate", today); // Marquer comme lue
+                }, 800); // Attendre 0.8s pour simuler la fermeture
+            });
+
+            // ⏳ Masquer automatiquement après 10 secondes
+            setTimeout(() => {
+                letter.style.display = "none";
+            }, 500450);
+        }
+    });
+});
+
+
 
 /*-- MAGIC BADGES | HF --*/
 document.addEventListener("DOMContentLoaded", function () {
@@ -298,3 +388,65 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+
+
+
+/*---- CMD PAGINATION ---*/
+document.addEventListener("DOMContentLoaded", function () {
+    const rows = document.querySelectorAll("tbody tr"); // Toutes les commandes
+    const itemsPerPage = 10;
+    let currentPage = 1;
+    const totalCommands = rows.length;
+    const totalPages = Math.ceil(totalCommands / itemsPerPage);
+
+    const prevButton = document.getElementById("prevPage");
+    const nextButton = document.getElementById("nextPage");
+    const pageNumbersContainer = document.getElementById("pageNumbers");
+    const commandInfo = document.getElementById("commandInfo");
+
+    function afficherPage(page) {
+        rows.forEach((row, index) => {
+            row.style.display = (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) ? "table-row" : "none";
+        });
+
+        updatePageNumbers();
+        prevButton.disabled = page === 1;
+        nextButton.disabled = page === totalPages;
+    }
+
+    function updatePageNumbers() {
+        pageNumbersContainer.innerHTML = ""; // Reset des numéros de page
+
+        for (let i = 1; i <= totalPages; i++) {
+            const pageButton = document.createElement("button");
+            pageButton.textContent = i;
+            pageButton.classList.add("page-number");
+            if (i === currentPage) {
+                pageButton.classList.add("active");
+            }
+            pageButton.addEventListener("click", function () {
+                currentPage = i;
+                afficherPage(currentPage);
+            });
+            pageNumbersContainer.appendChild(pageButton);
+        }
+
+        commandInfo.textContent = `Total : ${totalCommands} commandes`;
+    }
+
+    prevButton.addEventListener("click", function () {
+        if (currentPage > 1) {
+            currentPage--;
+            afficherPage(currentPage);
+        }
+    });
+
+    nextButton.addEventListener("click", function () {
+        if (currentPage < totalPages) {
+            currentPage++;
+            afficherPage(currentPage);
+        }
+    });
+
+    afficherPage(currentPage);
+});
