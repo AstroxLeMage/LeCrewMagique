@@ -317,31 +317,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /*-- MAGIC BADGES | HF --*/
 document.addEventListener("DOMContentLoaded", function () {
-    
-    function showPopover(event) {
-        var popover = document.getElementById("popover");
-        if (!popover) return;
-        
-        popover.style.opacity = "1";
-        popover.style.transition = "opacity 0.4s ease";
-    }
+    const elements = document.querySelectorAll(".element");
 
-    function hidePopover() {
-        var popover = document.getElementById("popover");
-        if (!popover) return;
+    elements.forEach((element) => {
+        const img = element.querySelector(".badges_img");
+        const popover = element.querySelector(".popover");
 
-        popover.style.opacity = "0";
-        popover.style.transition = "opacity 0.3s ease";
-    }
+        if (!img || !popover) return;
 
-    var badgesImg = document.querySelector(".badges_img");
-    if (badgesImg) {
-        badgesImg.addEventListener("mouseover", showPopover);
-        badgesImg.addEventListener("mouseout", hidePopover);
-    } else {
-        console.warn("⚠️ L'élément .badges_img n'a pas été trouvé dans le DOM.");
-    }
+        img.addEventListener("mouseover", () => {
+            popover.style.opacity = "1";
+            popover.style.transition = "opacity 0.4s ease";
+        });
+
+        img.addEventListener("mouseout", () => {
+            popover.style.opacity = "0";
+            popover.style.transition = "opacity 0.3s ease";
+        });
+    });
 });
+
 
 /* -- NAVIGATION DROPDOWN ANIMATION -- */
 let dropdownTimeout;
