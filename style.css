@@ -100,6 +100,8 @@ h2 {
 
 /*-- NAVIGATION CONTAINER --*/
 .navContainer {
+    position: relative;
+    z-index: 10001;  /* Plus élevé que celui des bannières, si nécessaire */
     background-color: rgba(38, 28, 36, 0.7);
     backdrop-filter: blur(30px);
     border-radius: 15px;
@@ -108,6 +110,7 @@ h2 {
     margin-left: 35px;
     transform: translateY(35px);
 }
+
 
 /*-- LOGO --*/
 .logo {
@@ -810,7 +813,7 @@ span {
     width: 410px;
     margin: -70px 20px 0 20px;
     position: relative;
-    color: #ffffff;
+    color: #ffffff;    
 }
 
 .bannerShape:after, .bannerBorder:after, .bannerContainer:after {
