@@ -149,3 +149,51 @@ h2 {
         display: none;
     }
 }
+
+
+
+
+
+
+
+/* Responsive pour tablettes et téléphones */
+@media (max-width: 768px) {
+  .badges_box {
+    width: 45%;
+    height: auto;
+  }
+
+  .badges_img {
+    width: 100px;
+    height: 100px;
+  }
+
+  h4 {
+    font-size: 16px;
+  }
+
+  .badges_txt {
+    font-size: 14px;
+  }
+}
+
+/* Responsive pour très petits écrans (mobiles portrait) */
+@media (max-width: 480px) {
+  .badges_box {
+    width: 100%;
+    height: auto;
+  }
+
+  .badges_img {
+    width: 80px;
+    height: 80px;
+  }
+
+  h4 {
+    font-size: 14px;
+  }
+
+  .badges_txt {
+    font-size: 12px;
+  }
+}
