@@ -582,7 +582,10 @@ section  { /* ✅ */
 
 .socialElements { /* Englobe les icones ✅ */
     margin-bottom: 40px;
+    margin-left: -25px;
 }
+
+
 
 .socialBottom { /* ✅ */
     display: flex;
