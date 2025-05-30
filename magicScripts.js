@@ -274,47 +274,6 @@ $(document).ready(function() {
     $liveSearchBox.val('');
 });
 
-/*---- ------*/
-
-document.addEventListener("DOMContentLoaded", function () {
-    const letter = document.getElementById("letter");
-    const now = new Date();
-    const currentHour = now.getHours();
-    const currentMinute = now.getMinutes();
-    const today = now.toDateString();
-    const lastReadDate = localStorage.getItem("letterReadDate");
-
-    // 🔄 Heures et minutes d'apparition (modifiable)
-    const schedule = [
-        { hour: 11, minute: 48 },  // Affiche à 10h30
-        { hour: 14, minute: 45 },  // Affiche à 14h45
-        { hour: 18, minute: 0 },   // Affiche à 18h00
-        { hour: 22, minute: 15 }   // Affiche à 22h15
-    ];
-
-    // 🔎 Vérifier si la lettre doit apparaître
-    schedule.forEach(time => {
-        if (currentHour === time.hour && currentMinute === time.minute && lastReadDate !== today) {
-            letter.style.display = "block"; // Affiche l'enveloppe
-
-            // 📌 Masquer après lecture (quand la lettre se referme)
-            letter.addEventListener("click", function () {
-                setTimeout(() => {
-                    letter.style.display = "none";
-                    localStorage.setItem("letterReadDate", today); // Marquer comme lue
-                }, 800); // Attendre 0.8s pour simuler la fermeture
-            });
-
-            // ⏳ Masquer automatiquement après 10 secondes
-            setTimeout(() => {
-                letter.style.display = "none";
-            }, 500450);
-        }
-    });
-});
-
-
-
 /*-- MAGIC BADGES | HF --*/
 document.addEventListener("DOMContentLoaded", function () {
     const elements = document.querySelectorAll(".element");
