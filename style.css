@@ -531,6 +531,10 @@ section  { /* ✅ */
     border-radius: 5px;
 }
 
+.planningWeek {
+    margin-top: 40px;
+}
+
 
 
 /* -- FOOTER -- */
