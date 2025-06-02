@@ -39,7 +39,7 @@ function loadTwitchPlayer() {
 }
 
 function handleResize() {
-    const container = document.getElementById("twitch-container");
+    const container = document.getElementById("twitch");
     if (!container || !twitchPlayer) return;
 
     const containerWidth = container.clientWidth;
