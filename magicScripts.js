@@ -422,5 +422,16 @@ function toggleDropdownMobile() {
 
 
 
+function toggleMenu() {
+  const menu = document.querySelector('.mobileMenu');
+  const isOpen = menu.classList.toggle('open');
+
+  // Blocage ou déblocage du scroll du site
+  if (isOpen) {
+    document.body.style.overflow = 'hidden';  // ❄️ Blocage
+  } else {
+    document.body.style.overflow = '';        // 🔓 Déblocage (on remet la valeur par défaut)
+  }
+}
 
 
