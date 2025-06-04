@@ -4,9 +4,6 @@
     display:  none;
   }
 
-  html, body {
-      overflow: hidden; /* On empêche le scroll global */
-  }
     .navContainer {
         display: flex;
         align-items: center;

@@ -423,15 +423,12 @@ function toggleDropdownMobile() {
 
 
 function toggleMenu() {
-  const menu = document.querySelector('.mobileMenu');
+  const menu = document.getElementById('menu');
   const isOpen = menu.classList.toggle('open');
 
-  // Blocage ou déblocage du scroll du site
   if (isOpen) {
-    document.body.style.overflow = 'hidden';  // ❄️ Blocage
+    document.body.style.overflow = 'hidden';  // ❄️ Figer le site
   } else {
-    document.body.style.overflow = '';        // 🔓 Déblocage (on remet la valeur par défaut)
+    document.body.style.overflow = '';        // 🔓 Libérer le scroll
   }
 }
-
-
