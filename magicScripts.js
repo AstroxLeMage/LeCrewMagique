@@ -422,13 +422,13 @@ function toggleDropdownMobile() {
 
 
 
-function toggleMenu() {
-  const menu = document.getElementById('menu');
-  const isOpen = menu.classList.toggle('open');
-
-  if (isOpen) {
-    document.body.style.overflow = 'hidden';  // ❄️ Figer le site
-  } else {
-    document.body.style.overflow = '';        // 🔓 Libérer le scroll
+  function toggleMenu() {
+    const menu = document.querySelector('.mobileMenu');
+    const isOpen = menu.classList.toggle('open');
+    
+    // Bloque ou débloque le scroll du site
+    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
   }
-}
+
+
+
