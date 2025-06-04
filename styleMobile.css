@@ -1,199 +1,171 @@
-/*CSS Mobile + Tablette *
-
-/*-- MOBILE // SMALL --*/
-  @media screen and (max-width: 600px) { 
-/* -- SECTION --*/
-h1 {
-    font-size: 40px;
-    letter-spacing: 0px;
-    line-height: 45px;
-}
-
-h2 {
-   font-size: 35px;
-   padding: 15px;
-   width: auto; 
-}
-
-
-/*-- NEWS BANNER --*/
-.newsHeader {
-   display: none;
-}
-
-/* --- NAVIGATION --*/
-.navContainer {
-    background-color: #261C24;
-    border-radius: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    transform: translateY(0px);
-    width: 100%;
-    margin-bottom: 65px;
-}
-
-.logo {
-   padding-left: 15px;
-   padding-right: 15px;
-   margin-right: 0;
-    width: 55px;
-    height: 46px;
-}
-
-.logo:hover {
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
-}
-
-.canvas {
-    height: 380px; /* Hauteur du header */
-    object-fit: none;
-}
-
-
-.navLink {
-   display: none;
-}
-
-
-.sectionContainer { /* ✅ */
-    display: flex;
-    flex-direction: column-reverse;
-    margin: 45px 0 45px;
-    width: 100%;
-}
-
-.aboutTxt {
-    margin-left: 0;
-}
-.discordTxt {
-    margin-right:0;
-}
-
-.textInfos {
-    text-align: left;
-    font-size: 20px;
-    line-height: 160%;
-    width: auto;
-    padding: 15px;
-    margin-bottom: 0;
-}
-
-.ubouxIllustration, .discordIllustration {
-    margin-top: -90px;
-    margin-bottom: -90px;
-}
-
-.test {
-    display: inline;
-}
-
-.discord-btn { /* Bouton Discord ✅ */
-    background-color: #7289DA;
-    margin-bottom: 45px;
-    float: none;
-    }
-
-.customShape {
-    display: none;
-}
-
-
-#twitch-embed {
-    width: 550px; /* Largeur maximale du conteneur */
-    height: 320px; /* Hauteur maximale du conteneur */
-}
-
-
-/*-- planning --*/
-.planning {
-    display: flex;
-    flex-direction: column;
-}
-
-#weekContainer {
-    overflow-x: auto; /* Ajoute un overflow horizontal */
-    white-space: nowrap; /* Empêche les éléments de se plier à la ligne suivante */
-    padding-bottom: 10px; /* Espace pour le défilement si besoin */
-    width: auto;
-}
-
-  }
-
-
-
-
-
-
-
-
-/*-- TABLETTE  // MEDIUM --*/ 
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
-    .burger {
-        display: none;
-    }
-
-    .customShape {
-        display: none;
-    }
-
-    
-    
-  }
-  
-
-  /*-- DESKTOP // LARGE --*/
-  @media only screen and (min-width: 1025px) {
-    /* Styles spécifiques pour les grands écrans (par exemple, ordinateurs de bureau) */
-    .burger {
-        display: none;
-    }
-}
-
-
-
-
-
-
-
-/* Responsive pour tablettes et téléphones */
+/* === MOBILE BURGER NAV === */
 @media (max-width: 768px) {
-  .badges_box {
-    width: 45%;
-    height: auto;
+  .newsHeader {
+    display:  none;
   }
 
-  .badges_img {
-    width: 100px;
-    height: 100px;
+  html, body {
+      overflow: hidden; /* On empêche le scroll global */
   }
+    .navContainer {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        width: 100%;
+        background-color: #261C24;
+        transform: none;
+        border-radius: 0;
+        margin-bottom: 80px;
+    }
 
-  h4 {
+    .logo {
+        display: none;
+    }
+
+    .logo:hover {
+        transform: none;
+    }
+
+    .navLink {
+        display: none;
+        
+    }
+
+    .burger {
+      margin-left: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+        padding: 20px;
+    }
+
+    .burger:hover {
+        background-color: #41323d;
+    }
+
+    .bar {
+        width: 20px;
+        height: 2px;
+        background-color: white;
+        margin: 2px 0;
+        border-radius: 10px;
+    }
+
+        .bar:nth-child(2) {
+        width: 15px;
+        height: 2px;
+        background-color: white;
+        margin: 3px 0;
+        border-radius: 3px;
+    }
+
+    .mobileMenu {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #1E181D;
+        color: white;
+        padding: 20px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 10002;
+          height: 100vh;           /* Hauteur de l'écran */
+  max-width: 50vw;       /* Ne dépasse jamais 980px */
+  min-width: 290px;       /* Ne descend jamais sous 290px */
+       
+        
+    }
+
+    .mobileMenu.open {
+        transform: translateX(0);
+    }
+
+    .mobile_btn {
+      background: none;
+    }
+
+    .mobileMenu .close {
+        font-size: 24px;
+        cursor: pointer;
+        text-align: left;
+        margin-top: -8px;
+    }
+
+    .mobileLogo {
+        width: 80px;
+        margin: 20px auto;
+        display: block;
+    }
+
+    .mobileMenu ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .mobileMenu ul li {
+        font-size: 16px;
+        font-weight: bold;
+        padding: 15px 15px;
+    }
+
+      .mobileMenu ul li:hover {
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #2C2029;
+        padding: 15px 15px;
+    }
+
+
+    .mobileMenu a {
+        color: white;
+        text-decoration: none;
+         font-family: 'Montserrat', sans-serif;
+    }
+
+    .mobileDropdownLinks {
+        display: none;
+        font-weight: normal;
+    }
+
+    .mobileDropdown.open .mobileDropdownLinks {
+        display: block;
+        background-color: #1E181D;
+        margin:0 ;
+    }
+
+    .mobileDropdown {
+        margin: 0;
+    }
+
+ .mobile_btn {
+    margin: 0;
     font-size: 16px;
-  }
+    padding: 0;
+    font-weight: bold;
+ }
 
-  .badges_txt {
-    font-size: 14px;
-  }
-}
+    .btn {
+        padding: 12px;
+        border-radius: 10px;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+        gap: 10;
+        font-weight: bold;
+    }
 
-/* Responsive pour très petits écrans (mobiles portrait) */
-@media (max-width: 480px) {
-  .badges_box {
-    width: 100%;
-    height: auto;
-  }
+    .btn.twitch {
+        background-color: #9146FF;
+        color: white;
+        margin-top: 30px;
+    }
 
-  .badges_img {
-    width: 80px;
-    height: 80px;
-  }
-
-  h4 {
-    font-size: 14px;
-  }
-
-  .badges_txt {
-    font-size: 12px;
-  }
+    .btn.discord {
+        background-color: #5865F2;
+        color: white;
+        margin-top: 20px;
+    }
 }

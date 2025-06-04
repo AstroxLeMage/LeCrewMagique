@@ -42,6 +42,35 @@
         <header class="canvas">
             <!-- NAVIGATION-->
             <nav class="navContainer">
+                <!-- Mobile -->
+                <div class="burger" onclick="toggleMenu()">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <div class="mobileMenu" id="mobileMenu">
+                    <div class="close" onclick="toggleMenu()">✕</div>
+                    <img class="mobileLogo" src="img/LCM.png" alt="Logo du Crew Magique">
+                    <ul>
+                        <li><a href="#">Rediffusions</a></li>
+                        <li><a href="#">Clips</a></li>
+                        <li class="mobileDropdown">
+                            <button class="mobile_btn" onclick="toggleDropdownMobile()"><a>Sanctuaire</a></button>
+                            <ul class="mobileDropdownLinks" id="mobileDropdownLinks">
+                                <li><a href="#">Codex du Savoir</a></li>
+                                <li><a href="#">Guide des !Commandes</a></li>
+                                <li><a href="#">Souvenirs Mémorables</a></li>
+                                <li><a href="#">Grimoire d'Expérience</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Boutique</a></li>
+                    </ul>
+                    <div class="mobileButtons">
+                        <a href="#" class="btn twitch">Regarder sur Twitch</a>
+                        <a href="#" class="btn discord">Rejoindre le Discord</a>
+                    </div>
+                </div> 
+                <!-- Desktop -->
                 <a href="index.html">
                     <img class="logo" src="img/LCM.png" alt="Logo du Crew Magique">
                 </a>
@@ -106,6 +135,7 @@
                     <li class="navCat"> 
                         <a href="https://rickroll.it/rickroll.mp4" target="_blank">Boutique</a>
                     </li>
+                    
             </nav>
             <!-- HEADER TEXTE -->
             <div class="textHeader">

@@ -404,3 +404,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     afficherPage(currentPage);
 });
+
+
+
+
+
+
+function toggleMenu() {
+    const menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("open");
+}
+
+function toggleDropdownMobile() {
+    const dropdown = document.querySelector(".mobileDropdown");
+    dropdown.classList.toggle("open");
+}
+
+
+
+
+

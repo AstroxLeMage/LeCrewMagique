@@ -46,7 +46,7 @@ h2 {
     height: 450px;
     background-image: url(img/crewBanner.jpg);
     background-repeat: no-repeat;
-    background-color: #40333D;
+    background-color: #40333d;
     background-position: center;
     background-size: cover;
 }
@@ -69,7 +69,6 @@ h2 {
     width: 65px;
     height: 56px;
     margin-right: 10px;
-    transition: ease-in-out 0.2s;
     padding-top: 15px;
     padding-bottom: 15px;
     padding-left: 25px;
@@ -1378,133 +1377,7 @@ h4 {
 }
 
 
-/*-- ?? --*/
-.letter-image {
-    position: fixed;
-    bottom: 1px;
-    left: 2%;
-    width: 200px;
-    height: 200px;
-    cursor: pointer;
-    color: black;
-  }
-  
-  .animated-mail {
-    position: absolute;
-    height: 150px;
-    width: 200px;
-    -webkit-transition: 0.4s;
-    -moz-transition: 0.4s;
-    transition: 0.4s;
-  
-    
-    .body {
-      position: absolute;
-      bottom: 0;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 0 0 100px 200px;
-      border-color: transparent transparent #f0d3ab transparent;
-      z-index: 2;
-       border-bottom-right-radius: 10px ;
-       border-bottom-left-radius: 10px;
-    }
-  
-    .top-fold {
-      position: absolute;
-      top: 50px;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 50px 100px 0 100px;
-      -webkit-transform-origin: 50% 0%;
-      -webkit-transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
-      -moz-transform-origin: 50% 0%;
-      -moz-transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
-      transform-origin: 50% 0%;
-      transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
-      border-color: #ebc897 transparent transparent transparent;
-      z-index: 2;
-    }
-  
-    .back-fold {
-      position: absolute;
-      bottom: 0;
-      width: 200px;
-      height: 100px;
-      background: #e2c499;
-      z-index: 0;
-      border-bottom-right-radius: 10px ;
-       border-bottom-left-radius: 10px;
-    }
-  
-    .left-fold {
-      position: absolute;
-      bottom: 0;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 50px 0 50px 100px;
-      border-color: transparent transparent transparent #f0d3ab;
-      z-index: 2;
-      border-bottom-right-radius: 10px ;
-       border-bottom-left-radius: 10px;
-    }
-  
-    .letter {
-      left: 20px;
-      bottom: 0px;
-      position: absolute;
-      width: 160px;
-      height: 60px;
-      background: #FCE1BB;
-      z-index: 1;
-      overflow: hidden;
-      -webkit-transition: 0.4s 0.2s;
-      -moz-transition: 0.4s 0.2s;
-      transition: 0.4s 0.2s;
-      border-bottom-right-radius: 10px ;
-       border-bottom-left-radius: 10px;
-       text-align: center;
-
-    .letter-title {
-        margin-top: 10px;
-        font-weight: 500;
-        align-items: center;
-
-      }
-      .letter-context {
-        margin-top: 10px;
-        font-size: 12px;
-      }
-    }
-  }
-  
-  .letter-image:hover {
-    .animated-mail {
-      transform: translateY(10px);
-      -webkit-transform: translateY(10px);
-      -moz-transform: translateY(10px);
-      
-    }
-  
-    .animated-mail .top-fold {
-      transition: transform 0.4s, z-index 0.2s;
-      transform: rotateX(180deg);
-      -webkit-transition: transform 0.4s, z-index 0.2s;
-      -webkit-transform: rotateX(180deg);
-      -moz-transition: transform 0.4s, z-index 0.2s;
-      -moz-transform: rotateX(180deg);
-      z-index: 0;
-    }
-  
-    .animated-mail .letter {
-      height: 180px;
-    }
-  
-    .shadow {
-      width: 250px;
-    }
+  .mobileMenu {
+    display: none;
   }
   
