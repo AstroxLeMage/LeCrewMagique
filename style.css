@@ -54,7 +54,7 @@ h2 {
 /*-- NAVIGATION CONTAINER --*/
 .navContainer {
     position: relative;
-    z-index: 10001;  /* Plus élevé que celui des bannières, si nécessaire */
+    z-index: 10001;
     background-color: rgba(38, 28, 36, 0.7);
     backdrop-filter: blur(30px);
     border-radius: 15px;
@@ -69,9 +69,8 @@ h2 {
     width: 65px;
     height: 56px;
     margin-right: 10px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 25px;
+    padding: 15px 0 15px 25px;
+    transition: transform 0.3s ease;
 }
 
 .logo:hover {
@@ -96,7 +95,7 @@ h2 {
     padding: 12px 13px 12px 13px;
 }
 
-a {
+.navContainer a {
     text-decoration: none;
     color: #ffffff;
     display: flex;
@@ -490,7 +489,6 @@ section  { /* ✅ */
 }
 
 .liveOn, .liveOff {
-
     transition: ease-in-out 0.2s;
 }
 
