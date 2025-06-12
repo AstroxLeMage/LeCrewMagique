@@ -102,6 +102,15 @@ h2 {
     align-items: center;
 }
 
+a { 
+    
+    text-decoration: none;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+
+}
+
 .navCat:hover {
     background-color: #41323d;
     padding: 12px 13px 12px 13px;
