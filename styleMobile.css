@@ -1,8 +1,8 @@
 /* === MOBILE BURGER NAV === */
 @media (max-width: 768px) {
-  .newsHeader {
-    display:  none;
-  }
+    .newsHeader {
+        display:  none;
+    }
 
     .navContainer {
         display: flex;
@@ -25,11 +25,10 @@
 
     .navLink {
         display: none;
-        
     }
 
     .burger {
-      margin-left: 8px;
+        margin-left: 8px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -49,7 +48,7 @@
         border-radius: 10px;
     }
 
-        .bar:nth-child(2) {
+    .bar:nth-child(2) {
         width: 15px;
         height: 2px;
         background-color: white;
@@ -69,11 +68,9 @@
         transform: translateX(-100%);
         transition: transform 0.3s ease-in-out;
         z-index: 10002;
-          height: 100vh;           /* Hauteur de l'écran */
-  max-width: 50vw;       /* Ne dépasse jamais 980px */
-  min-width: 290px;       /* Ne descend jamais sous 290px */
-       
-        
+        height: 100vh;           
+        max-width: 50vw;      
+        min-width: 290px;         
     }
 
     .mobileMenu.open {
@@ -108,23 +105,31 @@
         padding: 15px 15px;
     }
 
-      .mobileMenu ul li:hover {
+    .mobileMenu ul li:hover {
         font-size: 16px;
         font-weight: bold;
         background-color: #2C2029;
         padding: 15px 15px;
+        border-radius: 15px;
     }
-
 
     .mobileMenu a {
         color: white;
         text-decoration: none;
-         font-family: 'Montserrat', sans-serif;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    #mobileDropdownLinks {
+        margin-top: 20px;
     }
 
     .mobileDropdownLinks {
         display: none;
         font-weight: normal;
+    }
+
+    ul #mobileDropdownLinks {
+        background-color: #1E181D;
     }
 
     .mobileDropdown.open .mobileDropdownLinks {
@@ -137,19 +142,19 @@
         margin: 0;
     }
 
- .mobile_btn {
-    margin: 0;
-    font-size: 16px;
-    padding: 0;
-    font-weight: bold;
- }
+    .mobile_btn {
+        margin: 0;
+        font-size: 16px;
+        padding: 0;
+        font-weight: bold;
+    } 
 
     .btn {
         padding: 12px;
         border-radius: 10px;
         text-decoration: none;
         display: block;
-        text-align: center;
+        justify-content: center;
         gap: 10;
         font-weight: bold;
     }
@@ -164,5 +169,9 @@
         background-color: #5865F2;
         color: white;
         margin-top: 20px;
+    }
+
+    .btn:hover {
+        background-color: red;
     }
 }
